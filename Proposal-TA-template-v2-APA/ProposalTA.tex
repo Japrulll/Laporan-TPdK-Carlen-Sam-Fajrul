@@ -1,0 +1,72 @@
+% !TeX root = ProposalTA.tex
+\documentclass{ta-sti} % This automatically loads the class and all formatting
+
+\addbibresource{daftar-pustaka.bib}
+
+\begin{document}
+% ==========================================
+% HALAMAN AWAL (FRONTMATTER)
+% ==========================================
+\frontmatter
+\addtocontents{toc}{\protect\setlength{\cftbeforechapskip}{0pt}}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchapfont}{\protect\normalfont}}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappagefont}{\protect\normalfont}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+
+\input{1 Halaman Judul.tex}
+% \input{2 Lembar Pengesahan.tex}
+% \input{3 Pernyataan Orisinalitas.tex}
+% \input{3a Deklarasi Penggunaan AI.tex}
+
+\newgeometry{
+      twoside,
+      inner=4cm,
+      outer=3cm,
+      top=3cm,
+      bottom=3cm
+}
+% ==========================================
+\input{2 Daftar Isi.tex}
+\input{3 Daftar Gambar.tex}
+\input{4 Daftar Tabel.tex}
+\input{5 Daftar Persamaan.tex}
+\input{6 Daftar Algoritma.tex}
+\input{7 Daftar Listing.tex}
+\input{8 Daftar Singkatan.tex}
+\input{9 Daftar Simbol.tex}
+
+% ... [Rest of your frontmatter inputs] ...
+
+% ==========================================
+% BAGIAN UTAMA DOKUMEN
+% ==========================================
+\mainmatter
+\addtocontents{toc}{\protect\setlength{\cftbeforechapskip}{10pt}}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchapfont}{\protect\bfseries}}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappagefont}{\protect\bfseries}}
+\renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftchapdotsep}}
+
+\input{Bab I - Pendahuluan.tex}
+\input{Bab II - Studi.tex}
+\input{Bab III - Analisis-Masalah.tex}
+\input{Bab IV - Desain-Konsep-Solusi.tex}
+\input{Bab V - Rencana-Selanjutnya.tex}
+
+% ... [Rest of your mainmatter inputs] ...
+
+% ==========================================
+% DAFTAR PUSTAKA
+% ==========================================
+\cleardoublepage
+\printbibliography[heading=bibintoc, title={DAFTAR PUSTAKA}]
+
+\appendix
+\begin{appendices}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{}}
+\addtocontents{toc}{\protect\settowidth{\protect\cftchapnumwidth}{A\quad}}
+
+\input{Lampiran-A.tex}
+\end{appendices}
+\backmatter
+
+\end{document}
