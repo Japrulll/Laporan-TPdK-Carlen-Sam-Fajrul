@@ -42,51 +42,27 @@ Tugas proyek ini dinyatakan berhasil apabila ketiga tujuan tersebut tercapai. Kr
 \section{Lingkup dan Batasan}
 ADADeH memiliki lingkup dalam membantu korban kejahatan berbasis \textit{deepfake audio} untuk memperoleh indikasi awal atas keaslian suatu rekaman, yang mencakup pemrosesan rekaman audio, ekstraksi fitur, klasifikasi suara asli dan suara hasil AI generatif, serta penyajian hasil deteksi kepada pengguna. Pelatihan dan pengujian model dilakukan menggunakan satu \textit{dataset} publik pada \textit{platform} Kaggle, yang berisi rekaman berbahasa Inggris, sehingga kinerja sistem pada teknik pembuatan \textit{deepfake} lain yang tidak terwakili dalam \textit{dataset} tersebut maupun rekaman berbahasa Indonesia belum dapat dipastikan. Sistem hanya melakukan klasifikasi biner untuk membedakan suara asli dan \textit{deepfake audio}, tanpa mengidentifikasi pelaku maupun teknik pembuatan \textit{deepfake} yang digunakan. Masukan sistem berupa rekaman audio dalam format digital yang didukung dengan kualitas rekaman yang memadai, sehingga rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi. Hasil deteksi tidak menggantikan pemeriksaan forensik digital oleh ahli di laboratorium forensik digital. Pengembangan dibatasi hingga tahap integrasi dan pengujian berupa \textit{prototype}, sedangkan penerapan dalam skala luas dan pemeliharaan sistem belum menjadi bagian dari tugas proyek ini.
 
-\section{Hipotugas akhir}
-Tuliskan hipotugas akhir yang akan diuji dalam pelaksanaan tugas akhir. 
-Hipotugas akhir ini merupakan pernyataan yang dapat diuji kebenarannya melalui proses pelaksanaan tugas akhir, 
-terutama pada tahap evaluasi. Hipotugas akhir yang baik memiliki karakteristik sebagai berikut:
+% --- Metodologi Pengembangan ---
+\section{Metodologi Pengembangan}
+Pengembangan ADADeH menggunakan model \textit{waterfall} dengan tahapan berurutan dari analisis kebutuhan hingga integrasi dan pengujian. Hasil setiap tahap didokumentasikan sebagai dasar bagi tahap berikutnya. Sesuai dengan lingkup tugas proyek, pengembangan dibatasi pada prototipe yang dapat dijalankan dan didemonstrasikan.
+
+Di dalam kerangka tersebut, pengolahan data dan pengembangan model deteksi mengikuti \href{https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf}{\textit{Cross-Industry Standard Process for Data Mining} (CRISP-DM)}. CRISP-DM memandu pemahaman masalah dan data, penyiapan rekaman audio, pemodelan, evaluasi, serta penerapan model pada prototipe ADADeH. Kegiatan ini ditempatkan pada tahap \textit{waterfall} yang relevan; hasil evaluasi dapat digunakan untuk menyempurnakan data atau model sebelum integrasi prototipe.
+
 \begin{enumerate}
-    \item Spesifik: Hipotugas akhir harus jelas dan spesifik, sehingga dapat diuji dengan cara yang terukur.
-    \item Terukur: Hipotugas akhir harus dapat diuji dengan data atau informasi yang dapat diukur, sehingga dapat dinilai kebenarannya.
-    \item Relevan: Hipotugas akhir harus relevan dengan topik tugas akhir dan dapat memberikan kontribusi yang signifikan terhadap penyelesaian masalah yang dibahas.
-    \item Dapat diuji: Hipotugas akhir harus dapat diuji melalui proses pelaksanaan tugas akhir, terutama pada tahap evaluasi, sehingga dapat dinilai kebenarannya.
-\end{enumerate}
-
-Hipotugas akhir diperoleh dari premis-premis yang ada pada latar belakang dan rumusan masalah. 
-Oleh karena itu, tuliskan dulu premis-premis yang menentukan hipotugas akhir tersebut sebelum menuliskan hipotugas akhirnya.
-
-
-
-% --- Metodologi Pengerjaan TA ---
-\section{Metodologi}
-Tuliskan semua tahapan spesifik yang akan dilalui selama pelaksanaan tugas akhir. 
-Ada beberapa pendekatan metodologi yang dapat digunakan dalam pelaksanaan tugas akhir sesuai dengan topik yang dibahas, 
-misalnya Design Science Research Methodology (DSRM), Design Research Methodology (DRM), Cross-Industry Standard Process for Data Mining (CRISP-DM), dan sebagainya.
-
-Secara umum,  metodologi pengerjaan tugas akhir meliputi tahapan, langkah-langkah, atau tata cara melakukan:
-\begin{enumerate}
-\item	Investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara komprehensif di Bab II Studi Literatur.
-\item   Analisis kebutuhan berdasarkan hasil investigasi dan studi literatur. Jelaskan metode yang digunakan untuk melakukan analisis kebutuhan, misalnya wawancara, survei, observasi, atau studi kasus. Hasil analisis kebutuhan ini akan dijelaskan secara rinci di bab berikutnya.
-\item   Perancangan solusi berdasarkan hasil analisis kebutuhan. Jelaskan metode atau tahapan perancangan yang digunakan, dengan abstraksi yang bertahap dari generik ke spesifik, misalnya dengan pendekatan \textit{C4 model}. Selain itu, gunakan alat bantu penggambaran diagram yang tepat, misalnya menggunakan diagram UML, SySML, ERD, atau yang lainnya. 
-\item   Jika ada implementasi terhadap hasil rancangan, jelaskan teknologi dan alat bantu yang digunakan untuk mengimplementasikan rancangan. 
-\item   Evaluasi terhadap solusi yang telah diimplementasikan. Jelaskan metode pengujian, metrik evaluasi, atau studi kasus yang digunakan untuk menilai keberhasilan solusi. 
-\item   Penarikan kesimpulan dan saran berdasarkan hasil pelaksanaan tugas akhir berdasarkan hasil evaluasi.   
-\vfill % memaksa konten di atas untuk berada di bagian atas halaman dan menyisakan ruang kosong di bawah konten ini akibat berakhirnya section ini
+\item \textbf{Analisis kebutuhan.} Masalah \textit{deepfake audio} ditelaah melalui fakta yang mendasari rumusan masalah dan studi literatur. Kebutuhan pengguna serta kebutuhan fungsional dan nonfungsional sistem kemudian dirumuskan. Sedikitnya tiga alternatif solusi dibandingkan menggunakan matriks keputusan untuk menentukan pendekatan yang paling sesuai dengan kebutuhan tersebut.
+\item \textbf{Perancangan.} Arsitektur prototipe dan aliran data multimedia dirancang dari penerimaan rekaman audio, prapemrosesan, ekstraksi fitur, dan klasifikasi hingga penyajian label beserta tingkat keyakinan model dalam bentuk teks. Pada tahap ini juga dirancang pemisahan data latih dan data uji serta antarmuka agar hasil deteksi mudah dipahami pengguna awam.
+\item \textbf{Implementasi.} Rekaman berbahasa Inggris dari \href{https://www.kaggle.com/datasets/adarshsingh0903/audio-deepfake-detection-dataset}{\textit{Audio Deepfake Detection Dataset}} di Kaggle disiapkan untuk pengembangan model. Komponen prapemrosesan dan ekstraksi fitur audio dibangun, model dilatih untuk membedakan suara asli dari \textit{deepfake audio}, dan antarmuka prototipe dikembangkan sesuai rancangan.
+\item \textbf{Integrasi dan pengujian.} Komponen digabungkan menjadi alur otomatis dari masukan rekaman hingga keluaran hasil klasifikasi. Kinerja model diukur pada data uji yang tidak digunakan untuk pelatihan, dengan target akurasi dan \textit{F1-score} minimal 90\% serta \textit{Equal Error Rate} (EER) maksimal 10\%. Selain menguji alur sistem, evaluasi pengguna dilakukan untuk menilai keterpahaman label dan tingkat keyakinan yang ditampilkan.
 \end{enumerate}
 
 % --- Sistematika Penulisan ---
 \section{Sistematika Penulisan}
-Tuliskan gambaran umum isi dari setiap bab yang ada dalam laporan tugas akhir. Sistematika penulisan ini memberikan panduan bagi pembaca tentang struktur dan alur pembahasan dalam laporan tugas akhir. Berikut adalah contoh sistematika penulisan yang dapat diikuti:
+Laporan tugas proyek ADADeH disusun dalam enam bab sebagai berikut.
 \begin{enumerate}
-\item	Bab I Pendahuluan: Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika penulisan laporan tugas akhir       .
-\item	Bab II Studi Literatur: Berisi kajian pustaka yang relevan dengan topik tugas akhir, termasuk teori-teori, konsep-konsep, dan hasil-hasil penelitian sebelumnya yang                mendukung pelaksanaan tugas akhir.
-\item	Bab III Analisis dan Desain: Berisi penjelasan tentang analisis masalah dan kebutuhan pengguna serta berbagai alternatif solusinya.
-\item   Bab IV Perancangan: Berisi penjelasan tentang perancangan solusi yang diusulkan, misalnya arsitektur sistem, desain basis data, antarmuka pengguna, dan sebagainya.
-\item	Bab V Implementasi: Berisi penjelasan tentang proses implementasi solusi yang diusulkan, termasuk langkah-langkah yang diambil, teknologi yang digunakan, dan hasil yang diperoleh.
-\item	Bab VI Evaluasi: Berisi analisis dan evaluasi terhadap solusi yang diimplementasikan, termasuk metode pengujian, hal-hal yang disiapkan sebelum pengujian, hasil pengujian, dan penilaian kinerja.                  
-\item   Bab VII Kesimpulan dan Saran: Berisi kesimpulan dari hasil pelaksanaan tugas akhir dan saran untuk pengembangan lebih lanjut.
-\item   Daftar Pustaka: Berisi daftar referensi yang digunakan dalam penyusunan laporan tugas akhir.
-\item   Lampiran: Berisi dokumen-dokumen pendukung seperti kode program, data lengkap hasil pengujian, rekaman wawancara, dan lain-lain. 
+\item \textbf{Bab I Pendahuluan.} Bab ini memuat latar belakang, rumusan masalah, tujuan, lingkup dan batasan, metodologi pengembangan, serta sistematika penulisan.
+\item \textbf{Bab II Dasar Teori.} Bab ini membahas konsep sistem multimedia, karakteristik audio dan \textit{deepfake audio}, dasar pemrosesan dan deteksi audio, serta kajian solusi atau penelitian terkait.
+\item \textbf{Bab III Analisis Kebutuhan.} Bab ini menjelaskan kebutuhan pengguna dan sistem, sedikitnya tiga alternatif solusi, serta dasar pemilihan solusi yang dikembangkan.
+\item \textbf{Bab IV Desain dan Implementasi.} Bab ini menguraikan arsitektur ADADeH, aliran pengolahan audio, rancangan antarmuka, dan implementasi prototipe.
+\item \textbf{Bab V Pengujian dan Diskusi.} Bab ini menyajikan skenario dan hasil pengujian sistem, evaluasi kuantitatif model, evaluasi pengguna, serta pembahasan keterbatasan hasil.
+\item \textbf{Bab VI Kesimpulan dan Saran.} Bab ini merangkum pencapaian tujuan proyek berdasarkan hasil evaluasi dan memberikan saran untuk pengembangan selanjutnya.
 \end{enumerate}
