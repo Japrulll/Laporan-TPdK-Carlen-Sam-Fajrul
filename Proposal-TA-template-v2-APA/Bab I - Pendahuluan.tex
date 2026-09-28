@@ -1,7 +1,7 @@
-\cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
+\cleardoublepage 
 \chapter{PENDAHULUAN}
 \label{chap:pendahuluan}
-% --- Latar Belakang ---
+
 \section{Latar Belakang}
 Tindak kriminal pada ruang digital yang memanfaatkan \textit{artificial intelligence} (AI) untuk memanipulasi audio/suara manusia kian meningkat dan sangat memprihatinkan. AI dimanfaatkan para pelaku kejahatan untuk membuat \textit{deepfake audio} yang ditujukan kepada korban sebagai modus penipuan atau pemerasan. Kebanyakan korban teperdaya oleh hasil manipulasi tersebut, yang mengakibatkan kerugian pada banyak aspek, khususnya kerugian finansial.
 
@@ -11,7 +11,6 @@ Saat ini, laboratorium forensik digital hanya ada di Dittipidsiber Mabes Polri d
 
 Oleh karena itu, diperlukan suatu metode yang mempermudah korban untuk mendeteksi \textit{deepfake audio} buatan AI. Para penulis menggagas platform bertajuk \textit{Audio Deepfake Anomaly Detection Harness} (ADADeH) untuk memerangi manipulasi AI dengan AI (AI vs AI) yang dilatih untuk mendeteksi \textit{deepfake audio}. Dengan demikian, pembuktian tidak perlu melalui serangkaian prosedur yang rumit.
 
-% --- Rumusan Masalah ---
 \section{Rumusan Masalah}
 Keterbatasan sarana pembuktian yang ada menimbulkan beberapa persoalan dalam menghadapi kejahatan berbasis \textit{deepfake audio}. Proses pendeteksian saat ini bergantung pada laboratorium forensik digital dan tenaga ahli yang jumlahnya terbatas, sehingga korban sulit mendapatkan indikasi awal atas rekaman yang diterimanya. Selain itu, suara hasil AI generatif kian menyerupai suara asli manusia sehingga tidak dapat dibedakan hanya dengan pendengaran. Di sisi lain, hasil deteksi yang ada umumnya belum disajikan dalam bentuk yang mudah dipahami masyarakat awam.
 
@@ -24,7 +23,6 @@ Berdasarkan hal tersebut, rumusan masalah setidaknya mencakup hal-hal berikut.
 \item	Bagaimana menyajikan hasil deteksi ADADeH secara mudah sebagai indikasi awal pembuktian, tanpa bergantung pada laboratorium forensik digital?
 \end{enumerate}
 
-% --- Tujuan ---
 \section{Tujuan}
 Berdasarkan latar belakang dan rumusan masalah yang telah diuraikan, tujuan dari TPdK ini adalah mengembangkan ADADeH, yaitu \textit{platform} berbasis AI untuk mendeteksi \textit{deepfake audio} sehingga dapat memberikan indikasi awal pembuktian bagi korban tanpa bergantung pada laboratorium forensik digital. Secara rinci, tujuan tersebut dijabarkan sebagai berikut.
 \begin{enumerate}
@@ -40,9 +38,9 @@ Tugas proyek ini dinyatakan berhasil apabila ketiga tujuan tersebut tercapai. Kr
 \item	Hasil deteksi ditampilkan dalam bentuk yang dapat dipahami oleh pengguna awam, yaitu label klasifikasi beserta tingkat keyakinan model.
 \end{enumerate}
 
-% --- Batasan Masalah ---
-\section{Ruang Lingkup, Asumsi, dan Batasan Masalah}
-Tuliskan ruang lingkup, asumsi, dan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
+% --- Lingkup dan Batasan ---
+\section{Lingkup dan Batasan}
+ADADeH memiliki lingkup dalam membantu korban kejahatan berbasis \textit{deepfake audio} untuk memperoleh indikasi awal atas keaslian suatu rekaman, yang mencakup pemrosesan rekaman audio, ekstraksi fitur, klasifikasi suara asli dan suara hasil AI generatif, serta penyajian hasil deteksi kepada pengguna. Pelatihan dan pengujian model dilakukan menggunakan satu \textit{dataset} publik pada \textit{platform} Kaggle, yang berisi rekaman berbahasa Inggris, sehingga kinerja sistem pada teknik pembuatan \textit{deepfake} lain yang tidak terwakili dalam \textit{dataset} tersebut maupun rekaman berbahasa Indonesia belum dapat dipastikan. Sistem hanya melakukan klasifikasi biner untuk membedakan suara asli dan \textit{deepfake audio}, tanpa mengidentifikasi pelaku maupun teknik pembuatan \textit{deepfake} yang digunakan. Masukan sistem berupa rekaman audio dalam format digital yang didukung dengan kualitas rekaman yang memadai, sehingga rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi. Hasil deteksi tidak menggantikan pemeriksaan forensik digital oleh ahli di laboratorium forensik digital. Pengembangan dibatasi hingga tahap integrasi dan pengujian berupa \textit{prototype}, sedangkan penerapan dalam skala luas dan pemeliharaan sistem belum menjadi bagian dari tugas proyek ini.
 
 \section{Hipotugas akhir}
 Tuliskan hipotugas akhir yang akan diuji dalam pelaksanaan tugas akhir. 
