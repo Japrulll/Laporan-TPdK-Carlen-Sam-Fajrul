@@ -26,11 +26,19 @@ Berdasarkan hal tersebut, rumusan masalah setidaknya mencakup hal-hal berikut.
 
 % --- Tujuan ---
 \section{Tujuan}
-Tuliskan \textbf{tujuan utama} dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. 
-Fokuskan isi subbab ini pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan 
-terkait dengan penyelesaian persoalan pada rumusan masalah. 
-Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan 
-di akhir pelaksanaan tugas akhir. Oleh karena itu, tuliskan juga \emph{kriteria keberhasilan} tugas akhir ini.
+Berdasarkan latar belakang dan rumusan masalah yang telah diuraikan, tujuan dari TPdK ini adalah mengembangkan ADADeH, yaitu \textit{platform} berbasis AI untuk mendeteksi \textit{deepfake audio} sehingga dapat memberikan indikasi awal pembuktian bagi korban tanpa bergantung pada laboratorium forensik digital. Secara rinci, tujuan tersebut dijabarkan sebagai berikut.
+\begin{enumerate}
+\item	Membangun model deteksi anomali yang dapat membedakan suara asli manusia dari \textit{deepfake audio} hasil AI generatif berdasarkan karakteristik akustik rekaman.
+\item	Merancang dan mengimplementasikan \textit{pipeline} ADADeH yang mencakup ekstraksi fitur audio, klasifikasi, dan evaluasi kinerja menggunakan metrik yang sesuai.
+\item	Menyajikan hasil deteksi dalam bentuk yang mudah dipahami orang awam sebagai indikasi awal pembuktian.
+\end{enumerate}
+
+Tugas proyek ini dinyatakan berhasil apabila ketiga tujuan tersebut tercapai. Kriteria keberhasilan yang digunakan adalah sebagai berikut.
+\begin{enumerate}
+\item	Model deteksi mencapai akurasi dan \textit{F1-score} minimal 90\% serta \textit{Equal Error Rate} (EER) maksimal 10\% pada data uji yang tidak digunakan dalam proses pelatihan.
+\item	\textit{Pipeline} ADADeH dapat dijalankan secara utuh, mulai dari masukan rekaman audio hingga keluaran hasil klasifikasi, tanpa adanya intervensi manual.
+\item	Hasil deteksi ditampilkan dalam bentuk yang dapat dipahami oleh pengguna awam, yaitu label klasifikasi beserta tingkat keyakinan model.
+\end{enumerate}
 
 % --- Batasan Masalah ---
 \section{Ruang Lingkup, Asumsi, dan Batasan Masalah}
