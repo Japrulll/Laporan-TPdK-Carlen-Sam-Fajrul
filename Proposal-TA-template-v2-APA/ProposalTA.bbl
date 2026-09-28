@@ -19,6 +19,46 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{Iman_2026}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fd00f9462993521a4115229768dc7437}{%
+           family={Iman},
+           familyi={I\bibinitperiod},
+           given={Muhamad},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd00f9462993521a4115229768dc7437}
+      \strng{fullhash}{fd00f9462993521a4115229768dc7437}
+      \strng{fullhashraw}{fd00f9462993521a4115229768dc7437}
+      \strng{bibnamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorbibnamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authornamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorfullhash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorfullhashraw}{fd00f9462993521a4115229768dc7437}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{26}
+      \field{month}{5}
+      \field{title}{Penyalahgunaan Deepfake \& Voice Cloning terhadap Keamanan Digital dalam Perspektif Hukum}
+      \field{urlday}{28}
+      \field{urlmonth}{9}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://dandapala.com/opini/detail/penyalahgunaan-deepfake-voice-cloning-terhadap-keamanan-digital-dalam-perspektif-hukum
+      \endverb
+      \verb{url}
+      \verb https://dandapala.com/opini/detail/penyalahgunaan-deepfake-voice-cloning-terhadap-keamanan-digital-dalam-perspektif-hukum
+      \endverb
+    \endentry
     \entry{laudon2020}{book}{}{}
       \name{author}{2}{}{%
         {{un=1,uniquepart=given,hash=2a3d8893ad04ba3c98081349c47e2f6c}{%
@@ -91,32 +131,20 @@
       \field{title}{Rekayasa Perangkat Lunak: Pendekatan Praktisi}
       \field{year}{2019}
     \endentry
-    \entry{saewong2002}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=40e944c749e803b82a3035d605517a8a}{%
-           family={Saewong},
-           familyi={S\bibinitperiod},
-           given={Saowanee},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b288d277e10eb2a0423611769e6fafe1}{%
-           family={Rajkumar},
-           familyi={R\bibinitperiod},
-           given={Ragunathan},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+    \entry{SIP_Law_Firm_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=767552f4891f408615393a8939c5c4ad}{%
+           family={{SIP Law Firm}},
+           familyi={S\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{fullhash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{fullhashraw}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{bibnamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorbibnamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authornamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorfullhash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorfullhashraw}{810f79e6bd41aca68e00669fe6fa4029}
+      \strng{namehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{fullhash}{767552f4891f408615393a8939c5c4ad}
+      \strng{fullhashraw}{767552f4891f408615393a8939c5c4ad}
+      \strng{bibnamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorbibnamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authornamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorfullhash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorfullhashraw}{767552f4891f408615393a8939c5c4ad}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -124,16 +152,65 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Obtaining simultaneous and timely access to multiple resources is known to be an NP-complete problem [10]. Complete resource decoupling is, therefore, often used for managing end-to-end delays in distributed real-time systems where each processor is scheduled independent of the others. This decou-pling approach unfortunately fails when multiple resources must be managed within a single node. Resources such as disk band-width and network bandwidth are available on a single node but must be managed by their host processor by means of device drivers, filesystem or protocol services. The host processor acting as a controlling resource, therefore, must play multiple roles. One, it is used by applications on that node. Two, it is used to control and manage other (time-shared) controlled resources including disk bandwidth and network bandwidth. These two roles, unfortunately, can often be at odds with one another. In this paper, we investigate the problem of co-scheduling controlling and controlled resources. We propose the use of a Cooperative Scheduling Server (CSS), which is a dedicated server that manages one specific controlled resource (like disk bandwidth, network bandwidth, inter-process communication, etc.) while using a controlling resource (like the processor). Two core ideas underlie our approach. First, a single (aperiodic) server is created on a controlling resource (such as a CPU) to handle all local requests for a controlled resource (such as disk bandwidth). This implies that conjunctive admission control must be carried out on both the controlling and controlled resources. Secondly, timing constraints at the application level are partitioned into multiple stages, each of which will be guaranteed to complete on a particular resource. RTFS is a real-time filesystem [2] that provides disk bandwidthguarantees under light CPU loads. With a cooperative scheduling server (FS-CSS) for this disk-based filesystem, disk bandwidth guarantees can be obtained under both heavy CPU and disk workloads. We describe the design and implementation of FS-CSS for providing disk bandwidth guarantees. We conclude with a detailed performance evaluation of FS-CSS.}
-      \field{journaltitle}{Proceedings 20th IEEE Real-Time Systems Symposium (Cat. No.99CB37054)}
-      \field{title}{Cooperative Scheduling of Multiple Resources}
-      \field{year}{2002}
-      \verb{doi}
-      \verb 10.1109/REAL.1999.818831
+      \field{day}{5}
+      \field{journaltitle}{SIP Law Firm}
+      \field{month}{12}
+      \field{title}{Fenomena Penipuan Digital Berupa Voice Cloning Berbasis AI}
+      \field{urlday}{28}
+      \field{urlmonth}{9}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
+      \endverb
+      \verb{url}
+      \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
       \endverb
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
+    \entry{Iman_2026}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fd00f9462993521a4115229768dc7437}{%
+           family={Iman},
+           familyi={I\bibinitperiod},
+           given={Muhamad},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd00f9462993521a4115229768dc7437}
+      \strng{fullhash}{fd00f9462993521a4115229768dc7437}
+      \strng{fullhashraw}{fd00f9462993521a4115229768dc7437}
+      \strng{bibnamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorbibnamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authornamehash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorfullhash}{fd00f9462993521a4115229768dc7437}
+      \strng{authorfullhashraw}{fd00f9462993521a4115229768dc7437}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{26}
+      \field{month}{5}
+      \field{title}{Penyalahgunaan Deepfake \& Voice Cloning terhadap Keamanan Digital dalam Perspektif Hukum}
+      \field{urlday}{28}
+      \field{urlmonth}{9}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://dandapala.com/opini/detail/penyalahgunaan-deepfake-voice-cloning-terhadap-keamanan-digital-dalam-perspektif-hukum
+      \endverb
+      \verb{url}
+      \verb https://dandapala.com/opini/detail/penyalahgunaan-deepfake-voice-cloning-terhadap-keamanan-digital-dalam-perspektif-hukum
+      \endverb
+    \endentry
     \entry{laudon2020}{book}{}{}
       \name{author}{2}{}{%
         {{un=1,uniquepart=given,hash=2a3d8893ad04ba3c98081349c47e2f6c}{%
@@ -206,32 +283,20 @@
       \field{title}{Rekayasa Perangkat Lunak: Pendekatan Praktisi}
       \field{year}{2019}
     \endentry
-    \entry{saewong2002}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=40e944c749e803b82a3035d605517a8a}{%
-           family={Saewong},
-           familyi={S\bibinitperiod},
-           given={Saowanee},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b288d277e10eb2a0423611769e6fafe1}{%
-           family={Rajkumar},
-           familyi={R\bibinitperiod},
-           given={Ragunathan},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
+    \entry{SIP_Law_Firm_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=767552f4891f408615393a8939c5c4ad}{%
+           family={{SIP Law Firm}},
+           familyi={S\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{fullhash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{fullhashraw}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{bibnamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorbibnamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authornamehash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorfullhash}{810f79e6bd41aca68e00669fe6fa4029}
-      \strng{authorfullhashraw}{810f79e6bd41aca68e00669fe6fa4029}
+      \strng{namehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{fullhash}{767552f4891f408615393a8939c5c4ad}
+      \strng{fullhashraw}{767552f4891f408615393a8939c5c4ad}
+      \strng{bibnamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorbibnamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authornamehash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorfullhash}{767552f4891f408615393a8939c5c4ad}
+      \strng{authorfullhashraw}{767552f4891f408615393a8939c5c4ad}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{extradatescope}{labelyear}
@@ -239,12 +304,21 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Obtaining simultaneous and timely access to multiple resources is known to be an NP-complete problem [10]. Complete resource decoupling is, therefore, often used for managing end-to-end delays in distributed real-time systems where each processor is scheduled independent of the others. This decou-pling approach unfortunately fails when multiple resources must be managed within a single node. Resources such as disk band-width and network bandwidth are available on a single node but must be managed by their host processor by means of device drivers, filesystem or protocol services. The host processor acting as a controlling resource, therefore, must play multiple roles. One, it is used by applications on that node. Two, it is used to control and manage other (time-shared) controlled resources including disk bandwidth and network bandwidth. These two roles, unfortunately, can often be at odds with one another. In this paper, we investigate the problem of co-scheduling controlling and controlled resources. We propose the use of a Cooperative Scheduling Server (CSS), which is a dedicated server that manages one specific controlled resource (like disk bandwidth, network bandwidth, inter-process communication, etc.) while using a controlling resource (like the processor). Two core ideas underlie our approach. First, a single (aperiodic) server is created on a controlling resource (such as a CPU) to handle all local requests for a controlled resource (such as disk bandwidth). This implies that conjunctive admission control must be carried out on both the controlling and controlled resources. Secondly, timing constraints at the application level are partitioned into multiple stages, each of which will be guaranteed to complete on a particular resource. RTFS is a real-time filesystem [2] that provides disk bandwidthguarantees under light CPU loads. With a cooperative scheduling server (FS-CSS) for this disk-based filesystem, disk bandwidth guarantees can be obtained under both heavy CPU and disk workloads. We describe the design and implementation of FS-CSS for providing disk bandwidth guarantees. We conclude with a detailed performance evaluation of FS-CSS.}
-      \field{journaltitle}{Proceedings 20th IEEE Real-Time Systems Symposium (Cat. No.99CB37054)}
-      \field{title}{Cooperative Scheduling of Multiple Resources}
-      \field{year}{2002}
-      \verb{doi}
-      \verb 10.1109/REAL.1999.818831
+      \field{day}{5}
+      \field{journaltitle}{SIP Law Firm}
+      \field{month}{12}
+      \field{title}{Fenomena Penipuan Digital Berupa Voice Cloning Berbasis AI}
+      \field{urlday}{28}
+      \field{urlmonth}{9}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
+      \endverb
+      \verb{url}
+      \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
       \endverb
     \endentry
   \enddatalist

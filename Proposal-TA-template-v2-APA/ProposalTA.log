@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.8.23)  28 SEP 2026 01:29
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.8.23)  28 SEP 2026 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1453,28 +1453,15 @@ Bab I.
 [1
 
 
-]
-Overfull \hbox (1.58914pt too wide) in paragraph at lines 40--41
-\TU/TimesNewRoman(0)/m/n/12 aktivitas orang yang menggunakan teknologi tersebut
- untuk mendukung
- []
-
-
-Underfull \vbox (badness 1983) has occurred while \output is active []
-
- [2]
-Overfull \hbox (6.8829pt too wide) in paragraph at lines 69--71
-\TU/TimesNewRoman(0)/m/n/12 yang harus dilakukan dalam pelaksanaan tugas akhir,
- sehingga pertanyaan-pertanyaan
- []
-
-[3]
-Overfull \hbox (2.76456pt too wide) in paragraph at lines 106--108
+] [2]
+Overfull \hbox (2.76456pt too wide) in paragraph at lines 61--63
 []\TU/TimesNewRoman(0)/m/n/12 Secara umum, metodologi pengerjaan tugas akhir me
 liputi tahapan, langkah-langkah,
  []
 
-[4] [5]) (Bab II - Studi.tex [6]
+[3] [4]) (Bab II - Studi.tex [5] [6
+
+]
 Bab II.
 
 Overfull \hbox (1.26251pt too wide) in paragraph at lines 5--8
@@ -1483,7 +1470,6 @@ pustaka, landasan teori, dan penelitian-
  []
 
 [7
-
 
 ]
 File: images/gambar1.png Graphic file (type bmp)
@@ -1547,13 +1533,7 @@ Bab IV.
 Bab V.
 ) [25] [26
 
-]
-Overfull \hbox (4.20627pt too wide) in paragraph at lines 61--61
-\TU/TimesNewRoman(0)/m/it/12 Proceedings 20th IEEE Real-Time Systems Symposium 
-(Cat. No.99CB37054)\TU/TimesNewRoman(0)/m/n/12 .
- []
-
-(Lampiran-A.tex [27
+] (Lampiran-A.tex [27
 
 ] [28
 
@@ -1578,11 +1558,11 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  33110 strings out of 402987
- 635914 string characters out of 5448731
- 1972670 words of memory out of 5000000
+ 636037 string characters out of 5448731
+ 1972726 words of memory out of 5000000
  61381 multiletter control sequences out of 15000+600000
  634673 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 90i,12n,141p,2380b,7223s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,141p,1278b,7223s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on ProposalTA.pdf (50 pages).

@@ -3,71 +3,26 @@
 \label{chap:pendahuluan}
 % --- Latar Belakang ---
 \section{Latar Belakang}
-Tindak kriminal pada ruang digital yang memanfaatkan \textit{artificial intelligence} (AI) untuk memanipulasi audio/suara manusia kian meningkat dan sangat memprihatinkan. AI dimanfaatkan para pelaku kejahatan untuk membuat \textit{auto-generated audio} yang ditujukan kepada korban sebagai modus penipuan atau pemerasan. Kebanyakan korban teperdaya oleh hasil manipulasi tersebut, yang mengakibatkan kerugian pada banyak aspek, khususnya finansial. Hal ini terjadi karena sulitnya membedakan antara suara asli yang dihasilkan manusia dengan suara hasil manipulasi AI.
+Tindak kriminal pada ruang digital yang memanfaatkan \textit{artificial intelligence} (AI) untuk memanipulasi audio/suara manusia kian meningkat dan sangat memprihatinkan. AI dimanfaatkan para pelaku kejahatan untuk membuat \textit{deepfake audio} yang ditujukan kepada korban sebagai modus penipuan atau pemerasan. Kebanyakan korban teperdaya oleh hasil manipulasi tersebut, yang mengakibatkan kerugian pada banyak aspek, khususnya kerugian finansial.
 
-Menurut \textcite{saewong2002}, Subbab ini \autocite{saewong2002} menjelaskan dasar pemikiran, motivasi, kebutuhan, alasan, atau urgensi pemilihan masalah tugas akhir. Subbab ini berisi penjelasan ringkas tentang kondisi atau situasi yang ada saat ini terkait dengan topik yang dibahas. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Dalam subbab ini, jelaskan hal-hal berikut ini:
-\begin{enumerate}
-\item	Kondisi atau situasi topik yang dibahas beserta permasalahannya, misalnya tentang pengelolaan informasi di fasilitas kesehatan daerah pedesaan saat ini dan masalah yang dihadapi, berdasarkan hasil survei atau wawancara dengan pihak terkait.
-\item	Urgensi atau pentingnya penyelesaian masalah tersebut, misalnya dampak negatif yang ditimbulkan jika masalah tersebut tidak diselesaikan.
-\item	Berbagai solusi yang telah diterapkan maupun solusi yang memungkinkan untuk diterapkan untuk menyelesaikan masalah tersebut, berdasarkan hasil studi literatur, wawancara dengan pihak terkait, atau kunjungan lapangan.
-\item   Kelemahan atau kekurangan dari solusi yang telah diterapkan atau yang memungkinkan untuk diterapkan tersebut, yang menjadi dasar pemikiran dalam merumuskan masalah tugas akhir.
-\end{enumerate}
-Penulisan latar belakang masalah yang baik akan mengantarkan pembaca kepada pemahaman yang jelas tentang topik yang akan dibahas, 
-sehingga pembaca dapat mengikuti pembahasan pada bab atau subbab berikutnya dengan baik. Oleh karena itu, 
-penulis diharapkan melakukan investigasi yang mendalam untuk mengumpulkan fakta-fakta yang relevan dengan topik yang dibahas, 
-baik melalui studi literatur, wawancara dengan pihak terkait, maupun kunjungan lapangan. Hasil studi ini dijelaskan secara \emph{ringkas} di dalam subbab ini.
-Penjelasan hasil studi literatur yang komprehensif dapat dijabarkan di Bab II secara sistematis.
+Para pelaku kejahatan melakukan hal tersebut dengan tujuan untuk menutup identitas aslinya. Metode tersebut berpotensi menimbulkan fitnah digital, manipulasi alat bukti elektronik, hingga kesalahan identifikasi dalam proses penegakan hukum \autocite{Iman_2026}. Upaya penegakkan hukum untuk memberantas permasalahan ini memerlukan bantuan forensik digital. Forensik digital diperlukan dalam memperoleh bukti-bukti digital, termasuk bukti \textit{deepfake audio} yang dibuat AI. Namun, hal ini hanya dapat dilaksanakan pada laboratorium forensik digital yang memfasilitasi proses perolehan serta pendeteksian bukti digital oleh para ahli.
 
-Dalam menulis latar belakang, hindari penulisan yang bersifat terlalu umum atau terlalu luas cakupannya sehingga sulit untuk dihubungkan dengan topik yang dibahas dalam tugas akhir,
-seperti:
-\begin{enumerate}
-    \item "Pentingnya teknologi informasi dalam kehidupan manusia."
-    \item "Perkembangan pesat teknologi \emph{artificial intelligence} di era digital."
-    \item "Tantangan dalam pengelolaan data besar (\emph{big data}) di berbagai sektor industri."
-    \item "Peran teknologi informasi dalam meningkatkan kualitas layanan kesehatan."
-\end{enumerate}
-Penulisan yang terlalu umum atau luas cakupannya akan menyulitkan penulis dalam merumuskan masalah, tujuan, metodologi, dan evaluasi tugas akhir.
+Saat ini, laboratorium forensik digital hanya ada di Dittipidsiber Mabes Polri dan Polda Metro Jaya. Selain itu, keterbatasan fasilitas tersebut pun diiringi dengan kurangnya ahli forensik digital, khususnya ahli yang memahami AI generatif \autocite{SIP_Law_Firm_2025}. Keterbatasan ini menimbulkan kesulitan bagi para korban yang ingin melakukan pelaporan atau pembuktian. Korban harus merekam audio sebagai bukti sah yang selanjutnya dilimpahkan kepada institusi terkait untuk diproses.
 
-Jika ada referensi yang digunakan dalam penulisan latar belakang, cantumkan referensi tersebut dengan benar menggunakan \texttt{biblatex} sesuai dengan contoh penulisan kutipan dan daftar pustaka yang telah disediakan dalam template ini.
-Sebagai contoh, pada paragraf berikut ini terdapat kutipan dari dua referensi yang berbeda \autocite{laudon2020, pressman2019}. 
-Ada dua format penulisan sitasi yang dapat digunakan, yaitu format naratif dan format parentetik.
-Contoh penulisan kutipan dengan format naratif adalah sebagai berikut:
-\begin{displayquote}
-Menurut \textcite{laudon2020}, sistem informasi adalah kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi.
-\end{displayquote}
-Contoh penulisan kutipan dengan format parentetik adalah sebagai berikut:
-\begin{displayquote}
-    Sistem informasi merupakan kombinasi dari teknologi informasi dan aktivitas orang yang menggunakan teknologi tersebut untuk mendukung operasi dan manajemen organisasi \autocite{laudon2020}.
-\end{displayquote}
+Oleh karena itu, diperlukan suatu metode yang mempermudah korban untuk mendeteksi \textit{deepfake audio} buatan AI. Para penulis menggagas platform bertajuk \textit{Audio Deepfake Anomaly Detection Harness} (ADADeH) untuk memerangi manipulasi AI dengan AI (AI vs AI) yang dilatih untuk mendeteksi \textit{deepfake audio}. Dengan demikian, pembuktian tidak perlu melalui serangkaian prosedur yang rumit.
+
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
-Subbab ini berisi masalah utama yang dibahas dalam tugas akhir. Perumusan masalah yang baik memiliki struktur sebagai berikut:
-\begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
-\end{enumerate}
-Hindari penulisan masalah yang terlalu umum atau terlalu luas cakupannya sehingga sulit untuk diselesaikan dalam jangka waktu pelaksanaan tugas akhir, 
-seperti:
-\begin{enumerate}
-    \item "Bagaimana cara meningkatkan kualitas layanan kesehatan di Indonesia?"
-    \item "Bagaimana cara mengoptimalkan penggunaan energi di perkotaan?"
-    \item "Bagaimana cara mengurangi kemacetan lalu lintas di kota besar?"
-    \item "Bagaimana cara membangun sistem irigasi sawah menggunakan \emph{AI}?"
-\end{enumerate}
-Rumusan masalah yang baik dan spesifik akan memudahkan penulis dalam menentukan tujuan, metodologi, dan evaluasi tugas akhir.
+Keterbatasan sarana pembuktian yang ada menimbulkan beberapa persoalan dalam menghadapi kejahatan berbasis \textit{deepfake audio}. Proses pendeteksian saat ini bergantung pada laboratorium forensik digital dan tenaga ahli yang jumlahnya terbatas, sehingga korban sulit mendapatkan indikasi awal atas rekaman yang diterimanya. Selain itu, suara hasil AI generatif kian menyerupai suara asli manusia sehingga tidak dapat dibedakan hanya dengan pendengaran. Di sisi lain, hasil deteksi yang ada umumnya belum disajikan dalam bentuk yang mudah dipahami masyarakat awam.
 
-Selain itu, hindari menuliskan pertanyaan yang merupakan sebuah keniscayaan yang harus dijawab atau dikerjakan 
-dalam pelaksanaan tugas akhir, seperti:
+Apabila persoalan-persoalan ini tidak segera ditangani, korban akan tetap kesulitan melakukan pelaporan dan pembuktian, sementara pelaku dapat terus memanfaatkan \textit{deepfake audio} untuk menutupi identitasnya. Oleh karena itu, tugas proyek ini mengusulkan ADADeH, yaitu platform berbasis AI yang mendeteksi anomali pada rekaman audio untuk membedakan suara asli manusia dari \textit{deepfake audio}. 
+
+Berdasarkan hal tersebut, rumusan masalah setidaknya mencakup hal-hal berikut.
 \begin{enumerate}
-    \item "Bagaimana cara melakukan analisis kebutuhan sistem informasi rumah sakit?"
-    \item "Bagaimana cara merancang basis data untuk aplikasi X?"
-    \item "Bagaimana cara mengimplementasikan \textit{large language model} untuk deteksi penyakit Y?"
-    \item "Bagaimana cara menguji sistem penyiraman tanaman berbasis IoT yang akan dibuat?"
+\item	Bagaimana mendeteksi anomali pada rekaman audio yang membedakan suara asli manusia dari \textit{deepfake audio} hasil AI generatif?
+\item	Bagaimana merancang \textit{pipeline} ADADeH, mulai dari ekstraksi fitur audio hingga klasifikasi, dan evaluasi kinerja menggunakan metrik yang sesuai?
+\item	Bagaimana menyajikan hasil deteksi ADADeH secara mudah sebagai indikasi awal pembuktian, tanpa bergantung pada laboratorium forensik digital?
 \end{enumerate}
-Kegiatan analisis, perancangan, implementasi, dan pengujian merupakan tahapan yang harus dilakukan dalam pelaksanaan tugas akhir,
-sehingga pertanyaan-pertanyaan tersebut tidak perlu dimasukkan ke dalam rumusan masalah.
 
 % --- Tujuan ---
 \section{Tujuan}
