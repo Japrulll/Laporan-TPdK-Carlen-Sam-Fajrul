@@ -40,19 +40,27 @@ Tugas proyek ini dinyatakan berhasil apabila ketiga tujuan tersebut tercapai. Kr
 
 % --- Lingkup dan Batasan ---
 \section{Lingkup dan Batasan}
-ADADeH memiliki lingkup dalam membantu korban kejahatan berbasis \textit{deepfake audio} untuk memperoleh indikasi awal atas keaslian suatu rekaman, yang mencakup pemrosesan rekaman audio, ekstraksi fitur, klasifikasi suara asli dan suara hasil AI generatif, serta penyajian hasil deteksi kepada pengguna. Pelatihan dan pengujian model dilakukan menggunakan satu \textit{dataset} publik pada \textit{platform} Kaggle, yang berisi rekaman berbahasa Inggris, sehingga kinerja sistem pada teknik pembuatan \textit{deepfake} lain yang tidak terwakili dalam \textit{dataset} tersebut maupun rekaman berbahasa Indonesia belum dapat dipastikan. Sistem hanya melakukan klasifikasi biner untuk membedakan suara asli dan \textit{deepfake audio}, tanpa mengidentifikasi pelaku maupun teknik pembuatan \textit{deepfake} yang digunakan. Masukan sistem berupa rekaman audio dalam format digital yang didukung dengan kualitas rekaman yang memadai, sehingga rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi. Hasil deteksi tidak menggantikan pemeriksaan forensik digital oleh ahli di laboratorium forensik digital. Pengembangan dibatasi hingga tahap integrasi dan pengujian berupa \textit{prototype}, sedangkan penerapan dalam skala luas dan pemeliharaan sistem belum menjadi bagian dari tugas proyek ini.
+Lingkup dan batasan pengembangan ADADeH adalah sebagai berikut.
+\begin{enumerate}
+\item ADADeH membantu korban kejahatan berbasis \textit{deepfake audio} memperoleh indikasi awal atas keaslian suatu rekaman. Sistem mencakup pemrosesan rekaman audio, ekstraksi fitur, klasifikasi suara asli dan suara hasil AI generatif, serta penyajian hasil deteksi kepada pengguna.
+\item Pelatihan dan pengujian model menggunakan satu \textit{dataset} publik Kaggle berisi rekaman berbahasa Inggris. Kinerja sistem pada teknik \textit{deepfake} lain di luar \textit{dataset} dan pada rekaman berbahasa Indonesia belum dapat dipastikan.
+\item Sistem hanya melakukan klasifikasi biner untuk membedakan suara asli dan \textit{deepfake audio}, tanpa mengidentifikasi pelaku maupun teknik pembuatan \textit{deepfake} yang digunakan.
+\item Masukan sistem berupa rekaman audio dalam format digital dengan kualitas rekaman yang memadai. Rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi.
+\item Hasil deteksi tidak menggantikan pemeriksaan forensik digital oleh ahli di laboratorium forensik digital.
+\item Pengembangan dibatasi hingga integrasi dan pengujian purwarupa. Penerapan dalam skala luas dan pemeliharaan sistem belum menjadi bagian dari tugas proyek ini.
+\end{enumerate}
 
 % --- Metodologi Pengembangan ---
 \section{Metodologi Pengembangan}
-Pengembangan ADADeH menggunakan model \textit{waterfall} dari analisis kebutuhan hingga integrasi dan pengujian. Keluaran setiap tahap menjadi dasar tahap berikutnya. Hasil akhirnya adalah prototipe yang dapat dijalankan dan didemonstrasikan.
+Pengembangan ADADeH menggunakan model \textit{waterfall} dari analisis kebutuhan hingga integrasi dan pengujian. Keluaran setiap tahap menjadi dasar tahap berikutnya. Hasil akhirnya adalah purwarupa yang dapat dijalankan dan didemonstrasikan.
 
-Di dalam kerangka tersebut, \href{https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf}{\textit{Cross-Industry Standard Process for Data Mining} (CRISP-DM)} memandu penyiapan data audio, pemodelan, dan evaluasinya hingga model diterapkan pada prototipe. Jika hasil evaluasi belum memenuhi target, data atau model disempurnakan sebelum integrasi.
+Selain itu, pendekatan \href{https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf}{\textit{Cross-Industry Standard Process for Data Mining} (CRISP-DM)} digunakan untuk memandu penyiapan data audio, pemodelan, dan evaluasi model sebelum diintegrasikan ke dalam purwarupa. Jika hasil evaluasi belum memenuhi target, data atau model disempurnakan sebelum integrasi.
 
 \begin{enumerate}
 \item \textbf{Analisis kebutuhan.} Masalah \textit{deepfake audio} dan kebutuhan pengguna ditelaah melalui latar belakang serta literatur. Kebutuhan fungsional dan nonfungsional dirumuskan, lalu sedikitnya tiga alternatif solusi dibandingkan dengan matriks keputusan.
-\item \textbf{Perancangan.} Arsitektur prototipe dan aliran data dirancang dari masukan audio, prapemrosesan, ekstraksi fitur, dan klasifikasi hingga keluaran label serta tingkat keyakinan dalam teks. Perancangan juga mencakup pemisahan data latih dan uji serta antarmuka bagi pengguna awam.
-\item \textbf{Implementasi.} Rekaman berbahasa Inggris dari \href{https://www.kaggle.com/datasets/adarshsingh0903/audio-deepfake-detection-dataset}{\textit{Audio Deepfake Detection Dataset}} di Kaggle disiapkan. Komponen pemrosesan audio, model klasifikasi suara asli dan \textit{deepfake audio}, serta antarmuka prototipe dibangun sesuai rancangan.
-\item \textbf{Integrasi dan pengujian.} Komponen digabungkan menjadi alur otomatis dari rekaman hingga hasil klasifikasi. Pada data uji yang tidak digunakan untuk pelatihan, model ditargetkan mencapai akurasi dan \textit{F1-score} minimal 90\% serta \textit{Equal Error Rate} (EER) maksimal 10\%. Evaluasi pengguna menilai keterpahaman label dan tingkat keyakinan.
+\item \textbf{Perancangan.} Arsitektur purwarupa dan aliran data dirancang dari masukan audio, prapemrosesan, ekstraksi fitur, dan klasifikasi hingga keluaran label serta tingkat keyakinan dalam teks. Perancangan juga mencakup pemisahan data latih dan uji serta antarmuka bagi pengguna awam.
+\item \textbf{Implementasi.} Rekaman berbahasa Inggris dari \href{https://www.kaggle.com/datasets/adarshsingh0903/audio-deepfake-detection-dataset}{\textit{Audio Deepfake Detection Dataset}} di Kaggle disiapkan. Komponen pemrosesan audio, model klasifikasi suara asli dan \textit{deepfake audio}, serta antarmuka purwarupa dibangun sesuai rancangan.
+\item \textbf{Integrasi dan pengujian.} Komponen digabungkan menjadi alur otomatis dari rekaman hingga hasil klasifikasi. Pada data uji yang tidak digunakan untuk pelatihan, matriks konfusi digunakan untuk menghitung akurasi dan \textit{F1-score}. Model ditargetkan mencapai kedua metrik tersebut minimal 90\% serta \textit{Equal Error Rate} (EER) maksimal 10\%. Evaluasi pengguna menilai keterpahaman label dan tingkat keyakinan.
 \end{enumerate}
 
 % --- Sistematika Penulisan ---
@@ -62,7 +70,7 @@ Laporan tugas proyek ADADeH disusun dalam enam bab sebagai berikut.
 \item \textbf{Bab I Pendahuluan.} Bab ini memuat latar belakang, rumusan masalah, tujuan, lingkup dan batasan, metodologi pengembangan, serta sistematika penulisan.
 \item \textbf{Bab II Dasar Teori.} Bab ini membahas konsep sistem multimedia, karakteristik audio dan \textit{deepfake audio}, dasar pemrosesan dan deteksi audio, serta kajian solusi atau penelitian terkait.
 \item \textbf{Bab III Analisis Kebutuhan.} Bab ini menjelaskan kebutuhan pengguna dan sistem, sedikitnya tiga alternatif solusi, serta dasar pemilihan solusi yang dikembangkan.
-\item \textbf{Bab IV Desain dan Implementasi.} Bab ini menguraikan arsitektur ADADeH, aliran pengolahan audio, rancangan antarmuka, dan implementasi prototipe.
+\item \textbf{Bab IV Desain dan Implementasi.} Bab ini menguraikan arsitektur ADADeH, aliran pengolahan audio, rancangan antarmuka, dan implementasi purwarupa.
 \item \textbf{Bab V Pengujian dan Diskusi.} Bab ini menyajikan pengujian sistem dan model, evaluasi pengguna, serta pembahasan hasil dan keterbatasannya.
 \item \textbf{Bab VI Kesimpulan dan Saran.} Bab ini menyimpulkan pencapaian tujuan ADADeH dan menyampaikan saran pengembangan.
 \end{enumerate}
