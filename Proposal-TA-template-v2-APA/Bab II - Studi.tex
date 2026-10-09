@@ -198,7 +198,6 @@ Dari sisi pengguna, ADADeH tidak membutuhkan perangkat khusus. Pengguna cukup me
 \end{enumerate}
 
 Kedua komponen tersebut menentukan seberapa baik rekaman yang masuk ke sistem. Hal ini berkaitan dengan batasan pada Bab I, yaitu rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi.
-% CEK: hapus kalimat di bawah jika tidak relevan dengan rancangan sistem
 Selain itu, rekaman dari ponsel biasanya tersimpan dalam format \textit{lossy} seperti M4A atau OGG, sehingga perlu dikonversi terlebih dahulu ke format yang diterima sistem.
 
 \subsection{Perangkat Lunak}
@@ -289,7 +288,7 @@ menggunakan opsi \texttt{[t]} pada lingkungan \texttt{figure}, namun pada halama
 Penyebutan judul gambar dalam teks menggunakan perintah \texttt{ref}, misalnya Gambar \texttt{\\ref\{fig:jaringan\}}.
 Gunakan huruf kapital pada kata "Gambar" saat menyebutkan gambar dalam teks.
 
-\begin{figure}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
+\begin{figure}[t] 
   \caption{Contoh peletakan gambar di bagian atas halaman} 
 	\label{fig:jaringan}
     	\includegraphics[width=0.7\textwidth]{images/gambar1.png}
@@ -355,7 +354,7 @@ Tabel \ref{tab:tabel3} menggunakan lebar kolom tetap (\textit{fixed width}) meng
 
 \begin{table} 
   \centering
-    \begin{threeparttable}[t] % threeparttable agar bisa menambahkan catatan kaki pada tabel
+    \begin{threeparttable}[t] 
     \caption{Contoh tabel yang menggunakan \texttt{tabularx} untuk mengatur lebar kolom secara fleksibel. 
     Selain itu, tabel ini juga menggunakan \texttt{threeparttable} untuk menambahkan catatan kaki pada tabel 
     dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.}
