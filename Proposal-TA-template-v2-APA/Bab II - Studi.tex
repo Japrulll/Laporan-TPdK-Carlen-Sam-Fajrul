@@ -1,6 +1,6 @@
 \cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
-\chapter{STUDI LITERATUR}
-\label{chap:studi-literatur}
+\chapter{DASAR TEORI}
+\label{chap:dasar-teori}
 
 \section{Data Multimedia dan Representasinya}
 \label{data_mm}
@@ -126,29 +126,156 @@ Pada tahap penyajian hasil, ADADeH menampilkan label prediksi (asli atau \textit
 \section{Perangkat Keras dan Perangkat Lunak}
 \label{soft_hard_ware}
 
+Alur pengolahan audio pada Subbab \ref{sist_mulmed} membutuhkan perangkat untuk menjalankannya. Berbeda dengan sistem multimedia yang bergantung pada sensor atau mikrokontroler, ADADeH seluruhnya berjalan di atas komputer umum dan layanan komputasi awan (\textit{cloud}). Oleh karena itu, subbab ini hanya membahas perangkat yang dipakai selama pengembangan purwarupa, yaitu perangkat keras pada Subbab \ref{hardware} dan perangkat lunak pada Subbab \ref{software}.
+
+\subsection{Perangkat Keras}
+\label{hardware}
+
+Perangkat keras pada TPdK ini dibagi berdasarkan perannya, yaitu perangkat untuk melatih model, perangkat untuk mengembangkan dan menjalankan purwarupa, serta perangkat di sisi pengguna.
+
+\subsubsection{Perangkat Pelatihan Model}
+\label{hw_training}
+
+Pelatihan model merupakan tahap yang paling berat secara komputasi. Pada tahap ini, operasi konvolusi pada Persamaan \ref{eq:conv} dihitung berulang kali untuk seluruh \textit{mel-spectrogram} pada data latih, dan diulang lagi di setiap \textit{epoch} (satu putaran penuh atas data latih). Jika hanya mengandalkan CPU (\textit{Central Processing Unit}), proses tersebut dapat memakan waktu yang sangat lama. Hal inilah yang membuat GPU (\textit{Graphics Processing Unit}) dibutuhkan.
+
+GPU awalnya dirancang untuk mengolah grafis, tetapi memiliki ribuan inti kecil yang dapat mengerjakan banyak perhitungan sederhana secara bersamaan. Sifat ini cocok dengan operasi konvolusi, yang pada dasarnya adalah perkalian dan penjumlahan matriks dalam jumlah besar.
+
+Pelatihan model ADADeH dilakukan pada Kaggle Notebook, yaitu layanan komputasi awan yang menyediakan GPU secara gratis dengan kuota waktu tertentu tiap pekan \autocite{kaggle2026notebooks}. Layanan ini dipilih karena \textit{dataset} yang digunakan juga tersedia di Kaggle, sehingga data dapat langsung dipasang ke \textit{notebook} tanpa perlu diunduh dan diunggah ulang. Spesifikasi perangkat yang disediakan tersaji pada Tabel \ref{tab:spek_training}. Peran tiap komponennya adalah sebagai berikut:
+\begin{enumerate}[(a).]
+  \item GPU dan VRAM (\textit{Video Random Access Memory}). GPU mengerjakan perhitungan model, sedangkan VRAM adalah memori milik GPU yang menampung parameter model beserta sekumpulan data (\textit{batch}) yang sedang diproses. Kapasitas VRAM membatasi banyaknya \textit{mel-spectrogram} yang dapat diproses dalam satu \textit{batch}.
+  \item CPU. Walaupun perhitungan model dikerjakan GPU, CPU tetap berperan dalam mendekode berkas FLAC, membentuk \textit{mel-spectrogram}, dan menyusun \textit{batch} sebelum dikirim ke GPU.
+  \item RAM (\textit{Random Access Memory}). RAM menampung data yang sedang diolah CPU. Jika kapasitasnya kurang, proses pelatihan dapat terhenti di tengah jalan.
+  \item Media penyimpanan. Media ini menyimpan \textit{dataset} audio dan berkas model hasil pelatihan yang nantinya dimuat kembali oleh purwarupa.
+\end{enumerate}
+
+\begin{table}[t]
+  \centering
+  \caption{Spesifikasi perangkat pelatihan model pada Kaggle Notebook}
+  \label{tab:spek_training}
+  \begin{tabularx}{0.8\textwidth}{| l | X |}
+    \hline
+    \textbf{Komponen} & \textbf{Spesifikasi} \\
+    \hline
+    GPU   & (isi, misalnya NVIDIA Tesla T4) \\
+    VRAM  & (isi) GB \\
+    CPU   & (isi jumlah inti dan tipenya) \\
+    RAM   & (isi) GB \\
+    Penyimpanan & (isi) GB \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Perangkat Pengembangan dan Pengujian}
+\label{hw_dev}
+
+Laptop digunakan untuk menulis kode, menyusun laporan, dan menjalankan purwarupa ADADeH. Berbeda dengan pelatihan, proses prediksi (\textit{inference}) jauh lebih ringan. Model cukup menghitung keluaran satu kali untuk tiap potongan audio tanpa perlu memperbarui parameternya. Oleh karena itu, purwarupa dapat dijalankan pada laptop tanpa GPU khusus. Spesifikasi laptop yang digunakan tersaji pada Tabel \ref{tab:spek_laptop}.
+
+\begin{table}[t]
+  \centering
+  \caption{Spesifikasi laptop pengembangan dan pengujian}
+  \label{tab:spek_laptop}
+  \begin{tabularx}{0.8\textwidth}{| l | X |}
+    \hline
+    \textbf{Komponen} & \textbf{Spesifikasi} \\
+    \hline
+    Merek dan tipe  & (isi) \\
+    Prosesor        & (isi) \\
+    RAM             & (isi) GB \\
+    Penyimpanan     & (isi, misalnya SSD 512 GB) \\
+    Kartu grafis    & (isi) \\
+    Sistem operasi  & (isi) \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\subsubsection{Perangkat Pengguna}
+\label{hw_user}
+
+Dari sisi pengguna, ADADeH tidak membutuhkan perangkat khusus. Pengguna cukup memiliki perangkat yang dapat menyimpan dan mengunggah rekaman audio, misalnya ponsel pintar atau laptop. Meskipun begitu, ada dua komponen pada perangkat perekam yang berpengaruh langsung pada kualitas rekaman, yaitu:
+\begin{enumerate}[(a).]
+  \item Mikrofon. Seperti dijelaskan pada Subbab \ref{data_audio}, mikrofon menangkap gelombang suara dari udara dan mengubahnya menjadi sinyal listrik. Mikrofon bawaan ponsel sudah memadai untuk merekam ucapan, tetapi suara bising di sekitar perekam akan ikut terekam.
+  \item ADC (\textit{Analog-to-Digital Converter}). Komponen ini mencuplik sinyal listrik dari mikrofon menjadi deretan angka pada \textit{sampling rate} tertentu. Pada ponsel, nilainya umumnya 44,1~kHz atau 48~kHz.
+\end{enumerate}
+
+Kedua komponen tersebut menentukan seberapa baik rekaman yang masuk ke sistem. Hal ini berkaitan dengan batasan pada Bab I, yaitu rekaman dengan \textit{noise} yang sangat tinggi atau durasi yang terlalu singkat dapat menurunkan akurasi deteksi.
+% CEK: hapus kalimat di bawah jika tidak relevan dengan rancangan sistem
+Selain itu, rekaman dari ponsel biasanya tersimpan dalam format \textit{lossy} seperti M4A atau OGG, sehingga perlu dikonversi terlebih dahulu ke format yang diterima sistem.
+
+\subsection{Perangkat Lunak}
+\label{software}
+
+Seluruh perangkat lunak yang digunakan pada TPdK ini bersifat sumber terbuka (\textit{open source}) atau dapat dipakai secara gratis. Perangkat lunak tersebut dikelompokkan mengikuti alur pada Subbab \ref{sist_mulmed}, dan ringkasannya tersaji pada Tabel \ref{tab:software}.
+
+\subsubsection{Bahasa Pemrograman dan Lingkungan Pengembangan}
+\label{sw_env}
+
+\begin{enumerate}[(a).]
+  \item Python. Python menjadi bahasa pemrograman utama ADADeH. Bahasa ini dipilih karena hampir semua pustaka pemrosesan audio dan DL tersedia di dalamnya, sehingga seluruh alur dari prapemrosesan hingga antarmuka dapat ditulis dalam satu bahasa.
+  \item Kaggle Notebook. Selain menyediakan perangkat keras (Subsubbab \ref{hw_training}), Kaggle Notebook juga menjadi tempat menulis kode pelatihan. Kode ditulis dalam sel-sel yang dapat dijalankan terpisah, dan keluarannya seperti grafik atau spektrogram langsung muncul di bawah sel. Hal ini memudahkan penulis mencoba berbagai pengaturan tanpa menjalankan ulang seluruh program.
+  \item Visual Studio Code. Editor kode ini digunakan untuk menulis kode purwarupa di laptop.
+  \item Git dan GitHub. Git mencatat riwayat perubahan kode, sedangkan GitHub menyimpan kode tersebut secara daring agar seluruh anggota tim dapat bekerja pada kode yang sama.
+\end{enumerate}
+
+\subsubsection{Pustaka Pemrosesan Audio}
+\label{sw_audio}
+
+\begin{enumerate}[(a).]
+  \item librosa. Pustaka ini menangani hampir seluruh tahap prapemrosesan \autocite{mcfee2015librosa}. Fungsinya mencakup membaca berkas audio, menyeragamkan \textit{sampling rate} dan jumlah kanal, menghitung STFT, menerapkan \textit{filter bank} mel, serta mengonversi hasilnya ke skala dB.
+  \item SoundFile. Pustaka ini dipakai librosa untuk mendekode berkas FLAC menjadi deretan nilai amplitudo.
+  \item NumPy. \textit{Waveform} dan \textit{mel-spectrogram} disimpan sebagai larik (\textit{array}) NumPy \autocite{harris2020numpy}. Pemotongan audio menjadi \textit{chunks} dan normalisasi dilakukan sebagai operasi pada larik tersebut.
+\end{enumerate}
+
+\subsubsection{Pustaka Pembelajaran Mendalam}
+\label{sw_dl}
+
+\begin{enumerate}[(a).]
+  \item PyTorch. Pustaka ini digunakan untuk membangun dan melatih model CNN \autocite{paszke2019pytorch}. PyTorch menyediakan lapisan-lapisan siap pakai seperti konvolusi, \textit{pooling}, dan \textit{fully connected}, serta fungsi \textit{binary cross-entropy} pada Persamaan \ref{eq:bce}. Selain itu, PyTorch menghitung gradien secara otomatis sehingga penulis tidak perlu menurunkan rumus pembaruan parameter secara manual.
+  \item CUDA dan cuDNN. Keduanya adalah perangkat lunak dari NVIDIA yang menghubungkan PyTorch dengan GPU. Tanpa keduanya, PyTorch hanya dapat berjalan di CPU. Pada Kaggle Notebook, CUDA dan cuDNN sudah terpasang.
+\end{enumerate}
+
+\subsubsection{Pustaka Evaluasi dan Visualisasi}
+\label{sw_eval}
+
+\begin{enumerate}[(a).]
+  \item scikit-learn. Pustaka ini digunakan untuk membagi data latih dan data uji serta menghitung matriks konfusi, akurasi, dan F1-\textit{score} \autocite{pedregosa2011scikit}. Kurva ROC dari pustaka ini juga dipakai untuk mencari EER, yaitu titik ketika proporsi audio \textit{deepfake} yang lolos sebagai audio asli sama besar dengan proporsi audio asli yang salah dicap \textit{deepfake}.
+  \item Matplotlib. Pustaka ini digunakan untuk menggambar \textit{waveform}, \textit{mel-spectrogram}, dan grafik nilai \textit{loss} selama pelatihan \autocite{hunter2007matplotlib}.
+\end{enumerate}
+
+\subsubsection{Perangkat Lunak Antarmuka}
+\label{sw_ui}
+
+% CEK: ganti jika antarmuka dibuat dengan Gradio, Flask, atau lainnya
+Antarmuka purwarupa dibangun dengan Streamlit, yaitu kerangka kerja Python untuk membuat aplikasi web sederhana tanpa perlu menulis HTML, CSS, atau JavaScript \autocite{streamlit2026docs}. Melalui antarmuka ini, pengguna mengunggah rekaman audio dari peramban (\textit{browser}). Sistem kemudian menjalankan seluruh alur pengolahan dan menampilkan label prediksi beserta skor keyakinannya. Cara peramban dan aplikasi saling bertukar data akan dibahas pada Subbab \ref{protocol}.
+
+\begin{table}[t]
+  \centering
+  \caption{Ringkasan perangkat lunak yang digunakan pada ADADeH}
+  \label{tab:software}
+  \begin{tabularx}{\textwidth}{| l | c | X |}
+    \hline
+    \textbf{Perangkat Lunak} & \textbf{Versi} & \textbf{Peran} \\
+    \hline
+    Python              & (isi) & Bahasa pemrograman utama \\
+    Kaggle Notebook     & --    & Lingkungan pelatihan model \\
+    Visual Studio Code  & (isi) & Editor kode purwarupa \\
+    Git dan GitHub      & (isi) & Pengelolaan versi dan kolaborasi kode \\
+    librosa             & (isi) & Prapemrosesan audio dan pembentukan \textit{mel-spectrogram} \\
+    SoundFile           & (isi) & Dekode berkas FLAC \\
+    NumPy               & (isi) & Penyimpanan dan pengolahan data dalam bentuk larik \\
+    PyTorch             & (isi) & Pembangunan dan pelatihan model CNN \\
+    CUDA dan cuDNN      & (isi) & Penghubung PyTorch dengan GPU \\
+    scikit-learn        & (isi) & Pembagian data dan penghitungan metrik evaluasi \\
+    Matplotlib          & (isi) & Visualisasi data dan hasil pelatihan \\
+    Streamlit           & (isi) & Antarmuka pengguna berbasis web \\
+    \hline
+  \end{tabularx}
+\end{table}
+
 \section{Protokol Komunikasi Multimedia}
 \label{protocol}
 
 \section{Teknologi-Teknologi Lainnya}
 \label{other_tech}
-
-\section{Tentang Studi Literatur}
-Studi literatur biasanya berisi tentang tinjauan pustaka, landasan teori, serta hasil penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir yang dikerjakan. Dalam subbab ini, penulis diharapkan dapat menjelaskan:
-\begin{enumerate}
-  \item Landasan teori yang diperoleh dari literatur yang akan diimplementasikan untuk menyelesaikan persoalan TA;
-  \item Pengetahuan tentang kasus yang akan dikaji; dan
-  \item Penelitian atau solusi terkait untuk mengetahui posisi persoalan dan berbagai solusi yang memungkinkan untuk diterapkan berdasarkan hasil studi literatur ini.
-\end{enumerate}
-Jadi, studi literatur ini bukan sekadar rangkuman dari berbagai sumber referensi, tetapi harus diolah dan disajikan secara sistematis sehingga dapat memberikan gambaran yang jelas tentang landasan teori dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir.
-
-Penulisan studi literatur yang baik dimulai dari penjelasan tentang kasus yang akan dikaji, kemudian diikuti dengan penjelasan tentang teori-teori yang relevan, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang berkaitan dengan topik tugas akhir.
-Misalnya, jika topik tugas akhir adalah tentang masalah klasifikasi biji kopi berdasarkan citra kopi, 
-penulis dapat memulai dengan menjelaskan terlebih dahulu tentang karakteristik biji kopi, masalah dalam melakukan klasifikasi biji kopi, 
-kemudian menjelaskan tentang berbagai metode berbasis komputer yang dapat digunakan untuk mengklasifikasikan biji kopi berdasarkan citranya, 
-metode terbaik yang memungkinkan untuk diterapkan, teori-teori dasar tentang metode tersebut, dan diakhiri dengan tinjauan terhadap penelitian-penelitian terdahulu yang menggunakan metode untuk klasifikasi citra.
-
-Dalam studi literatur, biasanya banyak penjelasan tentang teori-teori yang disertai dengan rumus atau persamaan matematika, gambar, tabel, algoritma, pseudocode, atau kode program.
-Oleh karena itu, pada subbab berikut akan dijelaskan beberapa hal teknis terkait format penulisan dokumen tugas akhir.
 
 \section{Format Penulisan Gambar, Tabel, Rumus, dan Kode Program}
 Berikut adalah beberapa contoh penulisan gambar, tabel, rumus, dan kode program yang sesuai dengan format penulisan tugas akhir.
