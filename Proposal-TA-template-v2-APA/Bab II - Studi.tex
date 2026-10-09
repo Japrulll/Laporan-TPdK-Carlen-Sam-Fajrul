@@ -1,11 +1,141 @@
 \cleardoublepage % memastikan bab baru dimulai di halaman ganjil (kanan)
 \chapter{STUDI LITERATUR}
 \label{chap:studi-literatur}
-\section{Tentang Studi Literatur}
-Studi literatur biasanya berisi tentang tinjauan pustaka, landasan teori, dan penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir yang dikerjakan.
-Dalam subbab ini, penulis diharapkan dapat menjelaskan:
+
+\section{Data Multimedia dan Representasinya}
+\label{data_mm}
+
+Keberadaan data merupakan suatu hal yang krusial dalam proses pengembangan platform ADADeH. Data yang menjadi fondasi utama pengembangan ADADeH merupakan data multimedia. Pengembangan platform ini setidaknya mencakup dua data multimedia: (1) audio sebagai data utama dan (2) citra spektrogram frekuensi audio terhadap waktu yang menjadi masukan model. Data-data tersebut berkontribusi dalam mengklasifikasi audio asli dan audio buatan AI generatif (\textit{deepfake audio}).
+
+\subsection{Data Audio}
+\label{data_audio}
+
+Menurut \textcite{winer2025audio}, audio pada dasarnya adalah gelombang suara berbentuk pola kompresi dan ekspansi yang merambat melalui medium tertentu pada rentang frekuensi yang dapat didengar manusia. Rentang tersebut ada pada kisaran 20~Hz--20~kHz \autocite{wikipedia2026hearingrange}. Medium rambat gelombang suara umumnya adalah udara. Pada produksi musik atau audio digital, apabila gelombang tersebut ditangkap dari udara oleh media elektronik seperti mikrofon, suara dapat direpresentasikan sebagai sinyal listrik yang dialirkan melalui kabel atau sirkuit.
+
+Dalam TPdK ini, audio berperan sebagai data primer yang diolah dan nantinya dilatih model. Pemanfaatan audio sebagai data perlu memerhatikan beberapa hal, yaitu:
+\begin{enumerate}[(a).]
+  \item \textit{Sampling rate} (\textit{sr}). Menurut \textcite{shannon1949}, sinyal yang tidak memuat frekuensi di atas $F$ dapat direkonstruksi apabila dicuplik minimal $2F$ kali per detik. Audio diseragamkan pada \textit{sr} yang sama sebelum diubah ke spektrogram.
+  \item Format dan \textit{codec}. \textit{Dataset} yang digunakan menyimpan rekaman dalam format FLAC (\textit{Free Lossless Audio Codec}), yaitu format kompresi audio secara \textit{lossless} sehingga sinyal dekode identik dengan sinyal asli \autocite{rfc9639flac}. Hal ini berbeda dengan MP3 yang menggunakan kompresi \textit{lossy} dan membuang sebagian informasi sinyal \autocite{brandenburg1999mp3}.
+  \item Jumlah kanal dan durasi. Audio perlu diseragamkan menjadi satu kanal (mono) berdurasi tetap, agar menghasilkan spektrogram berdimensi seragam.
+\end{enumerate}
+
+\subsection{Data Citra Spektrogram}
+\label{data_spektrogram}
+
+Spektrogram adalah citra dua dimensi yang memuat grafik representasi gelombang suara (\textit{waveform}) terhadap waktu. Umumnya, grafik ini menempatkan frekuensi suara pada sumbu-Y dan waktu pada sumbu-X \autocite{app16020572}. Spektrogram direpresentasikan sebagai matriks vektor frekuensi bertumpuk yang tiap tumpukannya mewakili magnitudo frekuensi pada bingkai waktu singkat (\textit{analysis frame}). Pembentukkan spektrogram diilustrasikan pada Gambar \ref{fig:form_spectrogram}.
+
+\begin{figure}[h]
+  \centering
+  \caption{Proses Pembentukkan Spektrogram \autocite{app16020572}} 
+	\label{fig:form_spectrogram}
+    	\includegraphics[width=0.7\textwidth]{images/form_of_spec.png}
+\end{figure}
+
+Setiap vektor magnitudo frekuensi merupakan hasil dari transformasi ortogonal frekuensi suara terhadap waktu seperti \textit{Discrete Fourier Transform} (DFT), \textit{Fast Fourier Transform} (FFT), \textit{Discrete Cosine Transform} (DCT), dan sebagainya \autocite{mcloughlin2016speech}. Proses dilanjutkan dengan penjedelaan tiap potongan audio melalui fungsi jendela (\textit{window function}) untuk mencegah kebocoran spektral (\textit{spectral leakage}) dan efek tepi (\textit{edge effect}) \autocite{gibbs1899fourier}. Hal ini dilakukan karena fungsi jendela biasanya meredup hingga nol atau mendekati nol di tepi setiap bingkai.
+
+Salah satu bentuk pengembangan spektrogram adalah \textit{mel-spectrogram}. Bentuk tersebut digunakan pada TPdK ini yang akan lebih lanjut pada Subsubbab \ref{melspektrogram}. Selain itu beberapa perlakuan khusus yang harus diterapkan pada grafik spektrogram sebelum dilatih oleh model secara umum akan dijelaskan pada Subsubbab \ref{proc_spektrogram}
+
+\subsubsection{\textit{Mel-Spectrogram}}
+\label{melspektrogram}
+
+Representasi frekuensi terhadap waktu yang dipetakan pada skala Mel disebut \textit{mel-spectrogram}. Skala ini pertama kali digagas oleh \textcite{stevens1937mel} dengan menerapkan pemanfaatan data kenyaringan setara (\textit{equal-loudness}) manusia untuk pemetaan frekuensi (Hz) ke skala non-linear sesuai dengan persepsi manusia. Pada skala ini, selisih nilai yang sama berkorespondensi dengan selisih tinggi nada yang terdengar sama bagi pendengar, sehingga resolusinya lebih rapat pada frekuensi rendah dan lebih renggang pada frekuensi tinggi. Secara umum, pemetaan dari frekuensi linear (${f_{Hz}}$) ke frekuensi mel (${f_{mel}}$) mengikuti formula komputasi di bawah:
+
+\begin{align}
+  f_{mel} = 2595 \log_{10}\left(1 + \frac{f_{Hz}}{700}\right)
+  \label{eq:hz_to_mel}
+\end{align}
+\eqcaption{Persamaan Pemetaan Frekuensi Linear ke Mel}
+
+Persamaan \ref{eq:hz_to_mel} di atas menunjukkan bahwa pada ${f_{Hz} \le 700}$, hubungan antara ${f_{Hz}}$ dan ${f_{mel}}$ akan mendekati linear. Sedangkan pada ${f_{Hz} > 700}$ nilai mel akan bertambah semakin lambat secara logaritmik. Frekuensi Mel yang terhitung akan menjadi tumpukkan vektor seperti halnya pada spektrogram linear. Berdasarkan keserupaan tersebut, luaran yang dihasilkan adalah suatu grafik yang disebut \textit{mel-spectrogram}. 
+
+Karena proses pembentukannya melibatkan skala Mel yang dikembangkan dari eksperimen persepsi pendengaran manusia, \textit{mel-spectrogram} terbukti efektif untuk berbagai tugas analisis ucapan (\textit{speech analysis}). Keefektifan tersebut berpotensi mendukung pengembangan platform ADADeH yang fokus utamanya adalah menganalisis baik ucapan asli manusia maupun ucapan sintesis buatan AI. Selain itu, model pembelajaran mendalam atau DL (\textit{Deep Learning}) cenderung memiliki kemampuan lebih baik dalam memproses data citra dibanding data audio mentah. Model DL seperti CNN (\textit{Convolutional Neural Network}) merupakan salah satu model dengan kemampuan tersebut. Model ini akan dijabarkan secara rinci pada Subbab \ref{other_tech}.
+
+\subsubsection{Pemrosesan Spektrogram}
+\label{proc_spektrogram}
+
+Meskipun spektrogram umumnya tersaji dalam bentuk citra dua dimensi yang diproses oleh model DL, pada dasarnya spektrogram adalah grafik. Hal ini menjadi kurang tepat jika pemrosesan datanya diserupakan dengan data citra lainnya. \autocite{app16020572} memaparkan bahwa ada beberapa penyesuian yang perlu dilakukan pada citra spektrogram. Beberapa perlakuan tersebut tersaji pada rincian di bawah:
 \begin{enumerate}
-  \item Landasan teori yang diperoleh dari literatur yang akan digunakan untuk menyelesaikan persoalan TA;
+  \item Pemilihan Warna (Berwarna/RGB atau \textit{Greyscale})
+  \begin{itemize}
+    \item Spektrogram pada dasarnya \textit{greyscale} dengan nilai piksel 0 (putih)--1 (hitam). Pemberian warna pada spektrogram bisa saja dilakukan tapi hanya terbatas untuk keperluan visualisasi.
+    \item Memasukkan spektrogram berwarna pada model DL (seperti CNN) tidak menyebabkan kegagalan pembelajaran model.
+    \item Memasukkan spektrogram RGB pada model DL berimbas pada tingginya kompleksitas masukan (yaitu tiga kali lipat daripada \textit{greyscale}). Hal ini disebabkan bahwa citra RGB memiliki 3 kanal atau \textit{channel} warna, sedangkan greyscale hanya terdiri atas 1 kanal warna.
+  \end{itemize}
+  \item Invariansi Translasi dan Skala
+  \begin{itemize}
+    \item Pada citra, objek yang digeser tetaplah objek yang sama. Hal ini berbeda dengan spektrogram yang memuat grafik frekuensi suara--waktu.
+    \item Pada spektrogram, pergeseran sepanjang waktu (sumbu-X) tidak mengubah isi suara, tetapi pergeseran sepanjang frekuensi (sumbu-Y) bisa membuatnya terdengar seperti suara lain. Informasi yang terkandung pada sumbu X dan Y punya makna yang berbeda.
+    \item Perubahan skala secara horizontal berimbas pada durasi (cepat atau lambatnya suara). Perubahan skala secara vertikal berimbas pada rentang frekuensi suara (tinggi atau rendahnya nada).
+    \item Hal penting lainnya adalah mempertahankan konsistensi parameter spektrogram pada tahap prapemrosesan dan pelatihan model. Hal ini bertujuan agar skala spektrogram yang diterima model sama sehingga model tidak salah membaca data.
+  \end{itemize}
+  \item Fitur Lokal
+  \begin{itemize}
+    \item Korelasi lokal dan global pada audio berbeda sifatnya dengan pada citra.
+    \item Pola serupa pada rentang 0--50~Hz dan 16--18~kHz belum tentu bermakna, sedangkan pada citra bagian tekstur yang serupa (misalnya rumput) saling berkaitan dan penting untuk mendukung tugas klasifikasi.
+    \item Korelasi lokal sepanjang waktu lebih mirip selisih antar-frame video daripada titik yang berdekatan pada citra.
+  \end{itemize}
+\end{enumerate}
+
+\section{Sistem Multimedia}
+\label{sist_mulmed}
+
+Menurut \textcite{bandung2025inovasi}, multimedia setidaknya mengacu pada penggunaan berbagai jenis media yang meliputi teks, gambar, grafik, video, audio, animasi dan sebagainya, dalam satu lingkungan terintegrasi. Lingkungan tersebut harus memiliki kapabilitas untuk memproses, menyimpan, dan mengirim media melalui jaringan komunikasi data. Lebih lanjut, terminologi sistem multimedia merujuk pada kombinasi media-media tersebut yang tersalur pada beragam aplikasi \autocite{furht1994overview}. 
+
+Selain itu, \textcite{furht1994overview} juga menuturkan bahwa dalam praktiknya, sistem multimedia dapat menyimpan informasi audio dan video untuk dipakai kemudian, atau mentransmisikannya secara langsung (\textit{live-stream}) secara \textit{real-time}. Hal ini menyebabkan kompleksitasnya bertumpu pada seluruh komponen sistem komputer, mulai dari daya pemrosesan, penyimpanan, hingga jaringan digunakan. Dalam penerapannya pada sistem komputer, sistem multimedia kian berkembang pemanfaatannya seiring dengan berkembangnya teknologi seperti pembelajaran mendalam atau \textit{deep learning} (DL) \autocite{li2021fundamentals}. Hal inilah yang diimplementasikan pada ADADeH.
+
+ADADeH memposisikan sistem multimedia melalui alur pengolahan data audio. Alur ini setidaknya meliputi akuisisi, prapemrosesan, analisis model, dan penyajian model. Pada tahap akuisisi, data audio diterima dalam format FLAC (Subbab \ref{data_audio}) pada cuplikan tertentu (2,5--12,5 detik) yang konsisten. Selanjutnya data diolah pada tahap prapemrosesan dengan didekode ke plot gelombang audio (\textit{waveform}), diseragamkan menjadi satu kanal dengan \textit{sampling rate} dan durasi tetap, diurai dalam beberapa potongan (\textit{chunks}), kemudian ditransformasi melalui \textit{Short-Time Fourier transform} (STFT) dan \textit{filter bank} mel, dikonversi ke skala logaritmik (dB), serta dinormalisasi menggunakan statistik data latih untuk menghasilkan \textit{mel-spectrogram}. Selanjutnya \textit{mel-spectrogram} akan dilatih pada model DL untuk tugas klasifikasi.
+
+Pada tahap analisis model, \textit{mel-spectrogram} $\mathbf{X} \in \mathbb{R}^{M \times T}$, dengan $M$ jumlah \textit{mel bin} dan $T$ jumlah \textit{frame} waktu, diperlakukan sebagai citra satu kanal dan diproses oleh \textit{convolutional neural network} (CNN). Lapisan konvolusi mengekstraksi fitur lokal dengan menggeser filter berukuran $k_h \times k_w$ pada spektrogram, diikuti fungsi aktivasi ReLU (Persamaan~\ref{eq:conv}). Fitur yang dihasilkan diringkas oleh lapisan \textit{pooling} dan diteruskan ke lapisan \textit{fully connected} yang menghasilkan satu nilai skalar $z$ (\textit{logit}).
+
+\begin{align}
+  Z_k[i,j] = \max\left(0,\; b_k + \sum_{c=1}^{C_{\mathrm{in}}} \sum_{m=0}^{k_h-1} \sum_{n=0}^{k_w-1} W_k[c,m,n]\, X_c[i+m,\, j+n]\right)
+  \label{eq:conv}
+\end{align}
+\eqcaption{Persamaan Lapisan Konvolusi dengan Aktivasi ReLU}
+
+Nilai tersebut dikonversi menjadi probabilitas audio \textit{deepfake} $p$ menggunakan fungsi sigmoid (Persamaan~\ref{eq:sigmoid}).
+
+\begin{align}
+  p = \sigma(z) = \frac{1}{1 + e^{-z}}
+  \label{eq:sigmoid}
+\end{align}
+\eqcaption{Persamaan Fungsi Sigmoid}
+
+Kemudian label prediksi $\hat{y}$ ditentukan dengan membandingkan $p$ terhadap ambang $\tau$ (Persamaan~\ref{eq:threshold}).
+
+\begin{align}
+  \hat{y} =
+  \begin{cases}
+    1 & \text{jika } p \geq \tau \\
+    0 & \text{jika } p < \tau
+  \end{cases}
+  \label{eq:threshold}
+\end{align}
+\eqcaption{Persamaan Penentuan Label Prediksi}
+
+Selama pelatihan, parameter model dioptimasi dengan meminimalkan \textit{binary cross-entropy} (Persamaan~\ref{eq:bce}).
+
+\begin{align}
+  \mathcal{L} = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log p_i + (1 - y_i) \log (1 - p_i) \right]
+  \label{eq:bce}
+\end{align}
+\eqcaption{Persamaan \textit{Binary Cross-Entropy}}
+
+Pada tahap penyajian hasil, ADADeH menampilkan label prediksi (asli atau \textit{deepfake}) beserta skor keyakinan $c = \max(p,\, 1-p)$ kepada pengguna.
+
+\section{Perangkat Keras dan Perangkat Lunak}
+\label{soft_hard_ware}
+
+\section{Protokol Komunikasi Multimedia}
+\label{protocol}
+
+\section{Teknologi-Teknologi Lainnya}
+\label{other_tech}
+
+\section{Tentang Studi Literatur}
+Studi literatur biasanya berisi tentang tinjauan pustaka, landasan teori, serta hasil penelitian-penelitian terdahulu yang relevan dengan topik tugas akhir yang dikerjakan. Dalam subbab ini, penulis diharapkan dapat menjelaskan:
+\begin{enumerate}
+  \item Landasan teori yang diperoleh dari literatur yang akan diimplementasikan untuk menyelesaikan persoalan TA;
   \item Pengetahuan tentang kasus yang akan dikaji; dan
   \item Penelitian atau solusi terkait untuk mengetahui posisi persoalan dan berbagai solusi yang memungkinkan untuk diterapkan berdasarkan hasil studi literatur ini.
 \end{enumerate}

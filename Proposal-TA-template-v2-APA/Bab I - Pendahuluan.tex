@@ -27,7 +27,7 @@ Berdasarkan hal tersebut, rumusan masalah setidaknya mencakup hal-hal berikut.
 Berdasarkan latar belakang dan rumusan masalah yang telah diuraikan, tujuan dari TPdK ini adalah mengembangkan ADADeH, yaitu \textit{platform} berbasis AI untuk mendeteksi \textit{deepfake audio} sehingga dapat memberikan indikasi awal pembuktian bagi korban tanpa bergantung pada laboratorium forensik digital. Secara rinci, tujuan tersebut dijabarkan sebagai berikut.
 \begin{enumerate}
 \item	Membangun model deteksi anomali yang dapat membedakan suara asli manusia dari \textit{deepfake audio} hasil AI generatif berdasarkan karakteristik akustik rekaman.
-\item	Merancang dan mengimplementasikan \textit{pipeline} ADADeH yang mencakup ekstraksi fitur audio, klasifikasi, dan evaluasi kinerja menggunakan metrik yang sesuai.
+\item	Merancang dan mengimplementasikan \textit{pipeline} yang mencakup ekstraksi fitur audio, klasifikasi, dan evaluasi kinerja dengan metrik yang sesuai.
 \item	Menyajikan hasil deteksi dalam bentuk yang mudah dipahami orang awam sebagai indikasi awal pembuktian.
 \end{enumerate}
 
@@ -52,9 +52,7 @@ Lingkup dan batasan pengembangan ADADeH adalah sebagai berikut.
 
 % --- Metodologi Pengembangan ---
 \section{Metodologi Pengembangan}
-Pengembangan ADADeH menggunakan model \textit{waterfall} dari analisis kebutuhan hingga integrasi dan pengujian. Keluaran setiap tahap menjadi dasar tahap berikutnya. Hasil akhirnya adalah purwarupa yang dapat dijalankan dan didemonstrasikan.
-
-Selain itu, pendekatan \href{https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf}{\textit{Cross-Industry Standard Process for Data Mining} (CRISP-DM)} digunakan untuk memandu penyiapan data audio, pemodelan, dan evaluasi model sebelum diintegrasikan ke dalam purwarupa. Jika hasil evaluasi belum memenuhi target, data atau model disempurnakan sebelum integrasi.
+Pengembangan ADADeH menggunakan model \textit{waterfall} dari analisis kebutuhan hingga integrasi dan pengujian. Keluaran setiap tahap menjadi dasar tahap berikutnya. Hasil akhirnya adalah purwarupa yang dapat dijalankan dan didemonstrasikan. Selain itu, pendekatan \href{https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf}{\textit{Cross-Industry Standard Process for Data Mining} (CRISP-DM)} digunakan untuk memandu penyiapan data audio, pemodelan, dan evaluasi model sebelum diintegrasikan ke dalam purwarupa. Jika hasil evaluasi belum memenuhi target, data atau model disempurnakan sebelum integrasi akhir yang bersifat iteratif sampai seluruh komponen tervalidasi.
 
 \begin{enumerate}
 \item \textbf{Analisis kebutuhan.} Masalah \textit{deepfake audio} dan kebutuhan pengguna ditelaah melalui latar belakang serta literatur. Kebutuhan fungsional dan nonfungsional dirumuskan, lalu sedikitnya tiga alternatif solusi dibandingkan dengan matriks keputusan.

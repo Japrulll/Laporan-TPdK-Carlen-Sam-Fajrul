@@ -19,6 +19,144 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{bandung2025inovasi}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=17905cf9a8c3cd8c351a32577c1d3a0f}{%
+           family={Bandung},
+           familyi={B\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Bandung}%
+      }
+      \list{publisher}{1}{%
+        {ITB Press}%
+      }
+      \strng{namehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{fullhash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{fullhashraw}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{bibnamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorbibnamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authornamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorfullhash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorfullhashraw}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Forum Guru Besar Institut Teknologi Bandung. Disampaikan di Aula Barat ITB, 13 September 2025}
+      \field{series}{Orasi Ilmiah Guru Besar Institut Teknologi Bandung}
+      \field{title}{Inovasi Komputasi Multimedia Internet untuk Pengiriman Data Berkualitas dan Efisien}
+      \field{year}{2025}
+    \endentry
+    \entry{brandenburg1999mp3}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6ecf686130a010eb64796d5416c2cec0}{%
+           family={Brandenburg},
+           familyi={B\bibinitperiod},
+           given={Karlheinz},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Florence, Italy}%
+      }
+      \strng{namehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{fullhash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{fullhashraw}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{bibnamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorbibnamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authornamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorfullhash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorfullhashraw}{6ecf686130a010eb64796d5416c2cec0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the AES 17th International Conference on High-Quality Audio Coding}
+      \field{month}{9}
+      \field{title}{{MP3 and AAC Explained}}
+      \field{year}{1999}
+    \endentry
+    \entry{furht1994overview}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=628fbcc3ffa5d0192283a628a731aa1c}{%
+           family={Furht},
+           familyi={F\bibinitperiod},
+           given={Borko},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{fullhash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{fullhashraw}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{bibnamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorbibnamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authornamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorfullhash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorfullhashraw}{628fbcc3ffa5d0192283a628a731aa1c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE MultiMedia}
+      \field{number}{1}
+      \field{title}{Multimedia Systems: An Overview}
+      \field{volume}{1}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{pages}{47\bibrangedash 59}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/93.295268
+      \endverb
+    \endentry
+    \entry{gibbs1899fourier}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8c56d463032cf5d887b1070c0fcec1f0}{%
+           family={Gibbs},
+           familyi={G\bibinitperiod},
+           given={J\bibnamedelima Willard},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{fullhash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{fullhashraw}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{bibnamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorbibnamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authornamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorfullhash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorfullhashraw}{8c56d463032cf5d887b1070c0fcec1f0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{1539}
+      \field{title}{Fourier's series}
+      \field{volume}{59}
+      \field{year}{1899}
+      \field{pages}{606\bibrangedash 606}
+      \range{pages}{1}
+    \endentry
     \entry{Iman_2026}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=fd00f9462993521a4115229768dc7437}{%
@@ -98,6 +236,179 @@
       \field{title}{Sistem Informasi Manajemen}
       \field{year}{2020}
     \endentry
+    \entry{li2021fundamentals}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9004745c6574167c97d50da08dba950c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ze-Nian},
+           giveni={Z\bibinithyphendelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a20fab154591d9603d938041e836f378}{%
+           family={Drew},
+           familyi={D\bibinitperiod},
+           given={Mark\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b6ee7253d0b6ff8d31a7d6daed3d88e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jiangchuan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a23aa6e25997254b043b4b8326d0fb1f}
+      \strng{fullhash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{fullhashraw}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{bibnamehash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authorbibnamehash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authornamehash}{a23aa6e25997254b043b4b8326d0fb1f}
+      \strng{authorfullhash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authorfullhashraw}{ba62c2a0fe8fb865949a9024bf916ace}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Fundamentals of Multimedia}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-030-62124-7
+      \endverb
+    \endentry
+    \entry{app16020572}{article}{}{}
+      \name{author}{10}{}{%
+        {{un=1,uniquepart=given,hash=692e8f1260f77d56520f482ec7522497}{%
+           family={McLoughlin},
+           familyi={M\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=526926b62f86f895d0f15a5d601b742f}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Lam},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3a2e45acb815e215a5ad1e99547d520}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef3f59b432af3281a54422f454db0486}{%
+           family={Miao},
+           familyi={M\bibinitperiod},
+           given={Xiaoxiao},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d923a74800914eb8f2a8c5e873da9136}{%
+           family={Phan},
+           familyi={P\bibinitperiod},
+           given={Huy},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed8ddfdb103d49fc03674754f1587d29}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Pengfei},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a79d20a9b0056f69a39b223081048ad8}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Qing},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ff07ee4009eaae4be9d9810f247ceff}{%
+           family={Nan},
+           familyi={N\bibinitperiod},
+           given={Jiang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce3e1ad2c690cf652fa929425b301730}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Haoyu},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eddffbec3d4e9795e539511d1eced127}{%
+           family={Soh},
+           familyi={S\bibinitperiod},
+           given={Donny},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95e0b3ce12e4bae0629abf296ac5debe}
+      \strng{fullhash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{fullhashraw}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{bibnamehash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authorbibnamehash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authornamehash}{95e0b3ce12e4bae0629abf296ac5debe}
+      \strng{authorfullhash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authorfullhashraw}{72e2e0ea589f9e651268c5992ef97724}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Spectrogram-based representations have grown to dominate the feature space for deep learning audio analysis systems, and are often adopted for speech analysis also. Initially, the primary motivation behind spectrogram-based representations was their ability to present sound as a two-dimensional signal in the time–frequency plane, which not only provides an interpretable physical basis for analysing sound, but also unlocks the use of a range of machine learning techniques such as convolutional neural networks, which had been developed for image processing. A spectrogram is a matrix characterised by the resolution and span of its dimensions, as well as by the representation and scaling of each element. Many possibilities for these three characteristics have been explored by researchers across numerous application areas, with different settings showing affinity for various tasks. This paper reviews the use of spectrogram-based representations and surveys the state-of-the-art to question how front-end feature representation choice allies with back-end classifier architecture for different tasks.}
+      \field{issn}{2076-3417}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{2}
+      \field{title}{Spectrogram Features for Audio and Speech Analysis}
+      \field{volume}{16}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.3390/app16020572
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2076-3417/16/2/572
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2076-3417/16/2/572
+      \endverb
+    \endentry
+    \entry{mcloughlin2016speech}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=16c11a3aee72b04b3dfb827fa02d05a9}{%
+           family={McLoughlin},
+           familyi={M\bibinitperiod},
+           given={Ian\bibnamedelima Vince},
+           giveni={I\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{fullhash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{fullhashraw}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{bibnamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorbibnamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authornamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorfullhash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorfullhashraw}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Speech and Audio Processing: a MATLAB-based approach}
+      \field{year}{2016}
+    \endentry
     \entry{pressman2019}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=4d3f81788d99cf425c4b6e0a454baab0}{%
@@ -130,6 +441,41 @@
       \field{labeltitlesource}{title}
       \field{title}{Rekayasa Perangkat Lunak: Pendekatan Praktisi}
       \field{year}{2019}
+    \endentry
+    \entry{shannon1949}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=536c91678d1dde76c9acd47047556291}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhashraw}{536c91678d1dde76c9acd47047556291}
+      \strng{bibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorbibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authornamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhashraw}{536c91678d1dde76c9acd47047556291}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IRE}
+      \field{number}{1}
+      \field{title}{Communication in the Presence of Noise}
+      \field{volume}{37}
+      \field{year}{1949}
+      \field{pages}{10\bibrangedash 21}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/JRPROC.1949.232969
+      \endverb
     \endentry
     \entry{SIP_Law_Firm_2025}{misc}{}{}
       \name{author}{1}{}{%
@@ -168,9 +514,310 @@
       \verb{url}
       \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
       \endverb
+    \endentry
+    \entry{stevens1937mel}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5c850336805e0758a3f9abffd3b3dabf}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={S.\bibnamedelimi S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3bfacecf44324d75b8df505b0a38afe4}{%
+           family={Volkmann},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=67df40116c73a0f52a4656b47ed98439}{%
+           family={Newman},
+           familyi={N\bibinitperiod},
+           given={E.\bibnamedelimi B.},
+           giveni={E\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fa3e339281fd91e4b7795fe608de75ea}
+      \strng{fullhash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{fullhashraw}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{bibnamehash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authorbibnamehash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authornamehash}{fa3e339281fd91e4b7795fe608de75ea}
+      \strng{authorfullhash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authorfullhashraw}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{number}{3}
+      \field{title}{A Scale for the Measurement of the Psychological Magnitude Pitch}
+      \field{volume}{8}
+      \field{year}{1937}
+      \field{dateera}{ce}
+      \field{pages}{185\bibrangedash 190}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1121/1.1915893
+      \endverb
+    \endentry
+    \entry{rfc9639flac}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=94729a52bd0dbfa6c696224d01a28ba4}{%
+           family={Beurden},
+           familyi={B\bibinitperiod},
+           given={Martijn},
+           giveni={M\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=e7d4ee6b00bc04df8cb050ab9d16b1bf}{%
+           family={Weaver},
+           familyi={W\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \strng{namehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{fullhash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{fullhashraw}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{bibnamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorbibnamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authornamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorfullhash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorfullhashraw}{e2af1a1feb0f950118af1b14bf06824d}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{9639}
+      \field{title}{{Free Lossless Audio Codec (FLAC)}}
+      \field{type}{RFC}
+      \field{year}{2024}
+    \endentry
+    \entry{wikipedia2026hearingrange}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=535bebf06af273c7e2d9ff9d7fc43470}{%
+           family={{Wikipedia Contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Wikimedia Foundation}%
+      }
+      \strng{namehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{bibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorbibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Hearing range}
+      \field{urlday}{7}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Hearing_range
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Hearing_range
+      \endverb
+    \endentry
+    \entry{winer2025audio}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5b6241a937e3e4b67f7d6ba3e7461374}{%
+           family={Winer},
+           familyi={W\bibinitperiod},
+           given={Ethan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99e2f07422e1f63a90126f60b3cd5abc}{%
+           family={Lawrence},
+           familyi={L\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Focal Press}%
+      }
+      \strng{namehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{fullhash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{fullhashraw}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{bibnamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorbibnamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authornamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorfullhash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorfullhashraw}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The audio expert: everything you need to know about audio}
+      \field{year}{2025}
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
+    \entry{bandung2025inovasi}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=17905cf9a8c3cd8c351a32577c1d3a0f}{%
+           family={Bandung},
+           familyi={B\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Bandung}%
+      }
+      \list{publisher}{1}{%
+        {ITB Press}%
+      }
+      \strng{namehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{fullhash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{fullhashraw}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{bibnamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorbibnamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authornamehash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorfullhash}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \strng{authorfullhashraw}{17905cf9a8c3cd8c351a32577c1d3a0f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Forum Guru Besar Institut Teknologi Bandung. Disampaikan di Aula Barat ITB, 13 September 2025}
+      \field{series}{Orasi Ilmiah Guru Besar Institut Teknologi Bandung}
+      \field{title}{Inovasi Komputasi Multimedia Internet untuk Pengiriman Data Berkualitas dan Efisien}
+      \field{year}{2025}
+    \endentry
+    \entry{brandenburg1999mp3}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6ecf686130a010eb64796d5416c2cec0}{%
+           family={Brandenburg},
+           familyi={B\bibinitperiod},
+           given={Karlheinz},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Florence, Italy}%
+      }
+      \strng{namehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{fullhash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{fullhashraw}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{bibnamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorbibnamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authornamehash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorfullhash}{6ecf686130a010eb64796d5416c2cec0}
+      \strng{authorfullhashraw}{6ecf686130a010eb64796d5416c2cec0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the AES 17th International Conference on High-Quality Audio Coding}
+      \field{month}{9}
+      \field{title}{{MP3 and AAC Explained}}
+      \field{year}{1999}
+    \endentry
+    \entry{furht1994overview}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=628fbcc3ffa5d0192283a628a731aa1c}{%
+           family={Furht},
+           familyi={F\bibinitperiod},
+           given={Borko},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{fullhash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{fullhashraw}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{bibnamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorbibnamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authornamehash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorfullhash}{628fbcc3ffa5d0192283a628a731aa1c}
+      \strng{authorfullhashraw}{628fbcc3ffa5d0192283a628a731aa1c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE MultiMedia}
+      \field{number}{1}
+      \field{title}{Multimedia Systems: An Overview}
+      \field{volume}{1}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{pages}{47\bibrangedash 59}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/93.295268
+      \endverb
+    \endentry
+    \entry{gibbs1899fourier}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8c56d463032cf5d887b1070c0fcec1f0}{%
+           family={Gibbs},
+           familyi={G\bibinitperiod},
+           given={J\bibnamedelima Willard},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{fullhash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{fullhashraw}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{bibnamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorbibnamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authornamehash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorfullhash}{8c56d463032cf5d887b1070c0fcec1f0}
+      \strng{authorfullhashraw}{8c56d463032cf5d887b1070c0fcec1f0}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{1539}
+      \field{title}{Fourier's series}
+      \field{volume}{59}
+      \field{year}{1899}
+      \field{pages}{606\bibrangedash 606}
+      \range{pages}{1}
+    \endentry
     \entry{Iman_2026}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=fd00f9462993521a4115229768dc7437}{%
@@ -250,6 +897,179 @@
       \field{title}{Sistem Informasi Manajemen}
       \field{year}{2020}
     \endentry
+    \entry{li2021fundamentals}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9004745c6574167c97d50da08dba950c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Ze-Nian},
+           giveni={Z\bibinithyphendelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a20fab154591d9603d938041e836f378}{%
+           family={Drew},
+           familyi={D\bibinitperiod},
+           given={Mark\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b6ee7253d0b6ff8d31a7d6daed3d88e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jiangchuan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a23aa6e25997254b043b4b8326d0fb1f}
+      \strng{fullhash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{fullhashraw}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{bibnamehash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authorbibnamehash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authornamehash}{a23aa6e25997254b043b4b8326d0fb1f}
+      \strng{authorfullhash}{ba62c2a0fe8fb865949a9024bf916ace}
+      \strng{authorfullhashraw}{ba62c2a0fe8fb865949a9024bf916ace}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Fundamentals of Multimedia}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-3-030-62124-7
+      \endverb
+    \endentry
+    \entry{app16020572}{article}{}{}
+      \name{author}{10}{}{%
+        {{un=1,uniquepart=given,hash=692e8f1260f77d56520f482ec7522497}{%
+           family={McLoughlin},
+           familyi={M\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=526926b62f86f895d0f15a5d601b742f}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Lam},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3a2e45acb815e215a5ad1e99547d520}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef3f59b432af3281a54422f454db0486}{%
+           family={Miao},
+           familyi={M\bibinitperiod},
+           given={Xiaoxiao},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d923a74800914eb8f2a8c5e873da9136}{%
+           family={Phan},
+           familyi={P\bibinitperiod},
+           given={Huy},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed8ddfdb103d49fc03674754f1587d29}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Pengfei},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a79d20a9b0056f69a39b223081048ad8}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Qing},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ff07ee4009eaae4be9d9810f247ceff}{%
+           family={Nan},
+           familyi={N\bibinitperiod},
+           given={Jiang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce3e1ad2c690cf652fa929425b301730}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Haoyu},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eddffbec3d4e9795e539511d1eced127}{%
+           family={Soh},
+           familyi={S\bibinitperiod},
+           given={Donny},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95e0b3ce12e4bae0629abf296ac5debe}
+      \strng{fullhash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{fullhashraw}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{bibnamehash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authorbibnamehash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authornamehash}{95e0b3ce12e4bae0629abf296ac5debe}
+      \strng{authorfullhash}{72e2e0ea589f9e651268c5992ef97724}
+      \strng{authorfullhashraw}{72e2e0ea589f9e651268c5992ef97724}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Spectrogram-based representations have grown to dominate the feature space for deep learning audio analysis systems, and are often adopted for speech analysis also. Initially, the primary motivation behind spectrogram-based representations was their ability to present sound as a two-dimensional signal in the time–frequency plane, which not only provides an interpretable physical basis for analysing sound, but also unlocks the use of a range of machine learning techniques such as convolutional neural networks, which had been developed for image processing. A spectrogram is a matrix characterised by the resolution and span of its dimensions, as well as by the representation and scaling of each element. Many possibilities for these three characteristics have been explored by researchers across numerous application areas, with different settings showing affinity for various tasks. This paper reviews the use of spectrogram-based representations and surveys the state-of-the-art to question how front-end feature representation choice allies with back-end classifier architecture for different tasks.}
+      \field{issn}{2076-3417}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{2}
+      \field{title}{Spectrogram Features for Audio and Speech Analysis}
+      \field{volume}{16}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.3390/app16020572
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2076-3417/16/2/572
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2076-3417/16/2/572
+      \endverb
+    \endentry
+    \entry{mcloughlin2016speech}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=16c11a3aee72b04b3dfb827fa02d05a9}{%
+           family={McLoughlin},
+           familyi={M\bibinitperiod},
+           given={Ian\bibnamedelima Vince},
+           giveni={I\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{fullhash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{fullhashraw}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{bibnamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorbibnamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authornamehash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorfullhash}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \strng{authorfullhashraw}{16c11a3aee72b04b3dfb827fa02d05a9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Speech and Audio Processing: a MATLAB-based approach}
+      \field{year}{2016}
+    \endentry
     \entry{pressman2019}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=4d3f81788d99cf425c4b6e0a454baab0}{%
@@ -282,6 +1102,41 @@
       \field{labeltitlesource}{title}
       \field{title}{Rekayasa Perangkat Lunak: Pendekatan Praktisi}
       \field{year}{2019}
+    \endentry
+    \entry{shannon1949}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=536c91678d1dde76c9acd47047556291}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhashraw}{536c91678d1dde76c9acd47047556291}
+      \strng{bibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorbibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authornamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhashraw}{536c91678d1dde76c9acd47047556291}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IRE}
+      \field{number}{1}
+      \field{title}{Communication in the Presence of Noise}
+      \field{volume}{37}
+      \field{year}{1949}
+      \field{pages}{10\bibrangedash 21}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/JRPROC.1949.232969
+      \endverb
     \endentry
     \entry{SIP_Law_Firm_2025}{misc}{}{}
       \name{author}{1}{}{%
@@ -320,6 +1175,169 @@
       \verb{url}
       \verb https://siplawfirm.id/resources/fenomena-penipuan-digital-berupa-voice-cloning-berbasis-ai
       \endverb
+    \endentry
+    \entry{stevens1937mel}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5c850336805e0758a3f9abffd3b3dabf}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={S.\bibnamedelimi S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3bfacecf44324d75b8df505b0a38afe4}{%
+           family={Volkmann},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=67df40116c73a0f52a4656b47ed98439}{%
+           family={Newman},
+           familyi={N\bibinitperiod},
+           given={E.\bibnamedelimi B.},
+           giveni={E\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fa3e339281fd91e4b7795fe608de75ea}
+      \strng{fullhash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{fullhashraw}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{bibnamehash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authorbibnamehash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authornamehash}{fa3e339281fd91e4b7795fe608de75ea}
+      \strng{authorfullhash}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \strng{authorfullhashraw}{dc1bef64fe2ba82e6e33db703fe6f94f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of the Acoustical Society of America}
+      \field{number}{3}
+      \field{title}{A Scale for the Measurement of the Psychological Magnitude Pitch}
+      \field{volume}{8}
+      \field{year}{1937}
+      \field{dateera}{ce}
+      \field{pages}{185\bibrangedash 190}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1121/1.1915893
+      \endverb
+    \endentry
+    \entry{rfc9639flac}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=94729a52bd0dbfa6c696224d01a28ba4}{%
+           family={Beurden},
+           familyi={B\bibinitperiod},
+           given={Martijn},
+           giveni={M\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=e7d4ee6b00bc04df8cb050ab9d16b1bf}{%
+           family={Weaver},
+           familyi={W\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \strng{namehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{fullhash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{fullhashraw}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{bibnamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorbibnamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authornamehash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorfullhash}{e2af1a1feb0f950118af1b14bf06824d}
+      \strng{authorfullhashraw}{e2af1a1feb0f950118af1b14bf06824d}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{9639}
+      \field{title}{{Free Lossless Audio Codec (FLAC)}}
+      \field{type}{RFC}
+      \field{year}{2024}
+    \endentry
+    \entry{wikipedia2026hearingrange}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=535bebf06af273c7e2d9ff9d7fc43470}{%
+           family={{Wikipedia Contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Wikimedia Foundation}%
+      }
+      \strng{namehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{fullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{bibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorbibnamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authornamehash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhash}{535bebf06af273c7e2d9ff9d7fc43470}
+      \strng{authorfullhashraw}{535bebf06af273c7e2d9ff9d7fc43470}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Hearing range}
+      \field{urlday}{7}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Hearing_range
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Hearing_range
+      \endverb
+    \endentry
+    \entry{winer2025audio}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5b6241a937e3e4b67f7d6ba3e7461374}{%
+           family={Winer},
+           familyi={W\bibinitperiod},
+           given={Ethan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99e2f07422e1f63a90126f60b3cd5abc}{%
+           family={Lawrence},
+           familyi={L\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Focal Press}%
+      }
+      \strng{namehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{fullhash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{fullhashraw}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{bibnamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorbibnamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authornamehash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorfullhash}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \strng{authorfullhashraw}{e76ba4e9169a094a2b49ba2248c8b2c0}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The audio expert: everything you need to know about audio}
+      \field{year}{2025}
     \endentry
   \enddatalist
 \endrefsection
