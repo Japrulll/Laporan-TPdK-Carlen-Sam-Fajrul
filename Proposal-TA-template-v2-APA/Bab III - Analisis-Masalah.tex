@@ -1,9 +1,89 @@
+\cleardoublepage
 \chapter{ANALISIS KEBUTUHAN}
 \label{chap:analisis-kebutuhan}
+
+Bab ini menguraikan proses penggalian kebutuhan pengembangan ADADeH. Pembahasan diawali dengan metode pengumpulan data pada Subbab \ref{metode_data}, dilanjutkan dengan analisis kebutuhan pengguna pada Subbab \ref{keb_pengguna}. Hasil kedua subbab tersebut menjadi dasar pemilihan alternatif solusi dan perumusan kebutuhan sistem pada subbab berikutnya.
+
 \section{Metode Pengumpulan Data}
+\label{metode_data}
+{Belum BERES}
 
 \section{Analisis Kebutuhan Pengguna}
+\label{keb_pengguna}
+
+Berdasarkan data yang terkumpul pada Subbab \ref{metode_data}, kebutuhan pengguna ADADeH dirumuskan pada subbab ini. Kebutuhan pengguna adalah kemampuan yang harus dimiliki sistem dari sudut pandang pengguna, belum menyangkut cara pemenuhannya secara teknis.
+
+\subsection{Identifikasi Pengguna}
+\label{identifikasi_pengguna}
+
+ADADeH ditujukan bagi dua kelompok pengguna berikut.
+\begin{enumerate}[(a).]
+  \item \textbf{Pengguna awam.} Kelompok ini merupakan pengguna utama, yaitu korban atau calon korban kejahatan berbasis \textit{deepfake audio}. Kelompok ini tidak memiliki latar belakang pemrosesan sinyal maupun forensik digital, sehingga membutuhkan keluaran yang langsung dapat dipahami.
+  \item \textbf{Pendamping pelaporan.} Kelompok ini mencakup pihak yang membantu korban menyiapkan laporan. Kelompok ini membutuhkan keluaran yang dapat disimpan atau dilampirkan sebagai indikasi awal, dengan kesadaran bahwa hasil tersebut bukan pengganti pemeriksaan ahli.
+\end{enumerate}
+
+\subsection{Rumusan Kebutuhan Pengguna}
+\label{rumusan_kp}
+
+Kebutuhan pengguna diberi kode KP-01 sampai KP-08 dan diuraikan sebagai berikut.
+
+\begin{enumerate}[{KP-}01.]
+  \item \textbf{Pengguna membutuhkan sarana pemeriksaan keaslian rekaman yang dapat diakses secara mandiri.}\\
+  Survei menunjukkan sebagian besar responden tidak mengetahui prosedur pembuktian, sementara laboratorium forensik digital jumlahnya terbatas \autocite{SIP_Law_Firm_2025}. Pengguna karena itu membutuhkan sistem yang dapat dipakai tanpa melalui prosedur kelembagaan terlebih dahulu.
+
+  \item \textbf{Pengguna membutuhkan sistem yang menerima rekaman dari perangkat sehari-hari.}\\
+  Rekaman pengguna umumnya berasal dari ponsel dan tersimpan dalam format \textit{lossy}. Sistem harus menerima berkas tersebut dan menanganinya sendiri, tanpa menuntut pengguna melakukan konversi format secara manual.
+
+  \item \textbf{Pengguna membutuhkan keluaran berupa kesimpulan yang langsung dapat dipahami.}\\
+  Responden mengharapkan pernyataan asli atau \textit{deepfake} beserta tingkat keyakinannya, bukan keluaran teknis berupa nilai \textit{logit} atau grafik spektrum. Kebutuhan ini sejalan dengan penyajian skor keyakinan $c = \max(p,\, 1-p)$ pada Subbab \ref{sist_mulmed}.
+
+  \item \textbf{Pengguna membutuhkan keterangan mengenai keterbatasan hasil.}\\
+  Karena keluaran menyangkut kepentingan hukum \autocite{Iman_2026}, sistem harus menegaskan bahwa hasil merupakan indikasi awal dan tidak menggantikan pemeriksaan forensik digital oleh ahli.
+
+  \item \textbf{Pengguna membutuhkan hasil dalam waktu yang singkat.}\\
+  Pemeriksaan umumnya dilakukan pada situasi mendesak, misalnya saat pengguna sedang dihubungi pelaku. Waktu tunggu yang lama membuat sistem kehilangan manfaatnya.
+
+  \item \textbf{Pengguna membutuhkan sistem yang dapat memeriksa rekaman berdurasi panjang.}\\
+  Rekaman percakapan dapat berlangsung beberapa menit, sedangkan model bekerja pada potongan berdurasi tetap. Pengguna membutuhkan satu kesimpulan menyeluruh atas rekaman yang diunggah, bukan daftar hasil per potongan.
+
+  \item \textbf{Pengguna membutuhkan peringatan ketika mutu rekaman tidak memadai.}\\
+  Rekaman yang terlalu singkat atau mengandung derau tinggi menurunkan ketepatan deteksi. Pengguna perlu mengetahui hal tersebut agar tidak menyimpulkan secara keliru dari hasil yang kurang dapat dipercaya.
+
+  \item \textbf{Pengguna membutuhkan jaminan kerahasiaan atas rekaman yang diunggah.}\\
+  Rekaman suara merupakan data pribadi dan kerap memuat percakapan sensitif. Pengguna membutuhkan kepastian bahwa berkas tidak disebarluaskan dan tidak disimpan melebihi keperluan pemrosesan.
+\end{enumerate}
+
+\subsection{Keterlacakan Kebutuhan}
+\label{keterlacakan}
+
+Agar setiap kebutuhan dapat ditelusuri asalnya, Tabel \ref{tab:keterlacakan} memetakan kebutuhan pengguna terhadap sumber data dan rumusan masalah pada Bab \ref{chap:pendahuluan}. Pemetaan ini sekaligus memastikan tidak ada kebutuhan yang dirumuskan tanpa dasar.
+
+\begin{table}[t]
+  \centering
+  \caption{Keterlacakan kebutuhan pengguna terhadap sumber data dan rumusan masalah}
+  \label{tab:keterlacakan}
+  \begin{tabularx}{\textwidth}{| c | X | c |}
+    \hline
+    \textbf{Kode} & \textbf{Sumber Data} & \textbf{Rumusan Masalah} \\
+    \hline
+    KP-01 & Studi literatur dan survei butir 5 & 3 \\
+    KP-02 & Karakterisasi data dan survei butir 8 & 2 \\
+    KP-03 & Survei butir 3 dan butir 7 & 3 \\
+    KP-04 & Studi literatur & 3 \\
+    KP-05 & Survei butir 4 & 2 \\
+    KP-06 & Karakterisasi data dan survei butir 6 & 2 \\
+    KP-07 & Karakterisasi data dan studi literatur & 1 \\
+    KP-08 & Studi literatur & 3 \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Kedelapan kebutuhan tersebut menjadi dasar penyusunan alternatif solusi pada subbab berikutnya. Setiap alternatif dinilai berdasarkan kemampuannya memenuhi KP-01 sampai KP-08, kemudian alternatif terpilih diterjemahkan menjadi kebutuhan sistem yang bersifat teknis.
 
 \section{Pemilihan Alternatif Solusi}
+\label{metode_data}
+{Siapa yg mau ambil}
 
 \section{Analisis Kebutuhan Sistem}
+\label{metode_data}
+{Siapa yg mau ambil}

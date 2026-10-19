@@ -243,7 +243,6 @@ Seluruh perangkat lunak yang digunakan pada TPdK ini bersifat sumber terbuka (\t
 \subsubsection{Perangkat Lunak Antarmuka}
 \label{sw_ui}
 
-% CEK: ganti jika antarmuka dibuat dengan Gradio, Flask, atau lainnya
 Antarmuka purwarupa dibangun dengan Streamlit, yaitu kerangka kerja Python untuk membuat aplikasi web sederhana tanpa perlu menulis HTML, CSS, atau JavaScript \autocite{streamlit2026docs}. Melalui antarmuka ini, pengguna mengunggah rekaman audio dari peramban (\textit{browser}). Sistem kemudian menjalankan seluruh alur pengolahan dan menampilkan label prediksi beserta skor keyakinannya. Cara peramban dan aplikasi saling bertukar data akan dibahas pada Subbab \ref{protocol}.
 
 \begin{table}[t]
@@ -270,220 +269,115 @@ Antarmuka purwarupa dibangun dengan Streamlit, yaitu kerangka kerja Python untuk
   \end{tabularx}
 \end{table}
 
-\section{Protokol Komunikasi Multimedia}
-\label{protocol}
+Protokol komunikasi mengatur pertukaran data antarkomponen sistem, termasuk cara mengirim permintaan, menerima data, dan mengenali respons. Pada ADADeH, komunikasi tersebut menghubungkan peramban pengguna dengan aplikasi Streamlit yang menjalankan pengolahan audio. Data yang dipertukarkan berupa berkas rekaman, interaksi pengguna, dan hasil deteksi. Oleh karena itu, pembahasan protokol berkaitan dengan penyampaian rekaman secara utuh serta penyajian hasil kepada pengguna setelah pengolahan selesai.
+
+\subsection{Arsitektur Klien--Server dan Transportasi Data}
+\label{arsitektur_klien}
+
+Streamlit menggunakan arsitektur klien--server. Peramban menjadi klien yang menampilkan antarmuka, sedangkan program Python menjadi server yang menjalankan komputasi. Ketika purwarupa dijalankan secara lokal, kedua peran tersebut dapat berada pada komputer yang sama. Jika diakses melalui jaringan, perangkat pengguna dan komputer server dapat terpisah \autocite{streamlit2026docs}. Pada rancangan ADADeH, prapemrosesan audio dan prediksi CNN berlangsung di server sehingga perangkat pengguna cukup mengirim rekaman dan menampilkan hasil.
+
+Pada komunikasi berbasis TCP, \textit{Transmission Control Protocol} menyediakan aliran bita yang andal dan berurutan. TCP menggunakan nomor urut, konfirmasi penerimaan, dan pengiriman ulang untuk menangani data yang hilang selama transmisi \autocite{eddy2022tcp}. Sifat ini mendukung pengiriman berkas audio yang harus diterima secara lengkap sebelum didekode. Namun, keberhasilan transmisi hanya menunjukkan bahwa data dapat disampaikan; keterbacaan format dan kelayakan rekaman tetap perlu diperiksa oleh aplikasi.
+
+\subsection{HTTP dan HTTPS}
+\label{http_https}
+
+\textit{Hypertext Transfer Protocol} (HTTP) merupakan protokol pada lapisan aplikasi dengan pola permintaan dan respons. Klien mengirim permintaan ke suatu sumber daya, kemudian server mengembalikan respons yang memuat kode status dan, jika diperlukan, isi data. Sebagai contoh, metode GET digunakan untuk meminta representasi sumber daya, sedangkan POST meminta server memproses isi permintaan sesuai fungsi sumber daya tersebut \autocite{fielding2022http}. Metode ini menjelaskan semantik komunikasi web; mekanisme unggah pada purwarupa mengikuti fasilitas yang disediakan Streamlit.
+
+HTTPS melindungi komunikasi HTTP melalui \textit{Transport Layer Security} (TLS). TLS menyediakan autentikasi pihak yang berkomunikasi, kerahasiaan data, dan pemeriksaan integritas untuk mendeteksi perubahan selama transmisi \autocite{rescorla2018tls}. Perlindungan ini relevan karena rekaman yang diunggah dapat memuat suara dan percakapan pribadi. Apabila ADADeH diakses melalui jaringan publik, HTTPS perlu disediakan pada layanan yang menerima koneksi pengguna. Pengujian lokal dapat memakai HTTP, tetapi penggunaan HTTPS pada layanan publik harus dipastikan melalui konfigurasi penerapannya.
+
+\subsection{WebSocket dan Pengelolaan Sesi}
+\label{websocket}
+
+WebSocket menyediakan kanal komunikasi dua arah yang tetap terbuka setelah proses pembentukan koneksi atau \textit{handshake}. Pada mekanisme yang dijelaskan RFC 6455, koneksi diawali dengan permintaan HTTP untuk beralih ke protokol WebSocket. Setelah diterima, klien dan server dapat saling mengirim pesan melalui koneksi tersebut. Skema alamat \texttt{ws} digunakan untuk WebSocket, sedangkan \texttt{wss} menambahkan perlindungan TLS \autocite{fette2011websocket}.
+
+\begin{table}[t]
+  \centering
+  \caption{Peran protokol komunikasi pada rancangan ADADeH}
+  \label{tab:protokol}
+  \begin{tabularx}{\textwidth}{| l | X |}
+    \hline
+    \textbf{Protokol} & \textbf{Peran} \\
+    \hline
+    TCP           & Menyediakan aliran bita yang andal dan berurutan pada koneksi berbasis TCP \\
+    HTTP/HTTPS    & Melayani sumber daya web dan pengiriman berkas; HTTPS melindungi komunikasi dengan TLS \\
+    WebSocket/WSS & Mendukung pertukaran pesan antarmuka dan sesi; WSS melindungi koneksi dengan TLS \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Streamlit menggunakan WebSocket untuk pertukaran pesan antarmuka dan pengelolaan sesi. Setiap tab peramban membentuk koneksi tersendiri yang berkaitan dengan sesi pengguna. Pada saat yang sama, permintaan media dan unggahan berkas melibatkan HTTP \autocite{streamlit2026docs}. Dengan demikian, pengiriman rekaman dan pembaruan tampilan merupakan bagian komunikasi yang perlu dipahami bersama. Ketika aplikasi memakai HTTPS, koneksi WebSocket juga perlu menggunakan WSS. Ketersediaan WebSocket mendukung interaksi aplikasi, sedangkan analisis ADADeH tetap dilakukan terhadap rekaman yang telah diunggah.
+
+\subsection{Alur Pengiriman Audio dan Penyajian Hasil}
+\label{alur_kirim}
+
+Berdasarkan arsitektur tersebut, alur komunikasi pada purwarupa ADADeH dapat dijabarkan sebagai berikut.
+\begin{enumerate}[(a).]
+  \item Peramban membuka aplikasi dan membentuk sesi untuk menerima tampilan serta mengirim interaksi pengguna.
+  \item Pengguna memilih rekaman melalui \texttt{st.file\_uploader}. Berkas dikirim ke server, kemudian tersedia bagi program Python sebagai objek berkas yang dapat dibaca \autocite{streamlit2026uploader}.
+  \item Aplikasi memeriksa rekaman, menjalankan prapemrosesan pada Subbab \ref{sist_mulmed}, dan menghasilkan prediksi melalui model yang telah dilatih.
+  \item Server memperbarui antarmuka dengan label asli atau \textit{deepfake} beserta skor model. Jika berkas gagal dibaca atau pengolahan gagal, antarmuka perlu menyampaikan penyebabnya agar pengguna dapat memperbaiki masukan.
+\end{enumerate}
+
+Ringkasan peran protokol dalam alur tersebut disajikan pada Tabel \ref{tab:protokol}. HTTP dan WebSocket berperan pada pertukaran data aplikasi, sedangkan TLS melindungi koneksi ketika digunakan melalui jaringan publik.
+
+Ukuran unggahan perlu dibatasi dan isi berkas perlu diperiksa melalui dekode audio. Penyaringan ekstensi pada \texttt{st.file\_uploader} belum menjamin kesesuaian isi berkas \autocite{streamlit2026uploader}. Pemeriksaan ini menjaga masukan sesuai dengan batasan sistem pada Bab \ref{chap:pendahuluan}.
 
 \section{Teknologi-Teknologi Lainnya}
 \label{other_tech}
 
-\section{Format Penulisan Gambar, Tabel, Rumus, dan Kode Program}
-Berikut adalah beberapa contoh penulisan gambar, tabel, rumus, dan kode program yang sesuai dengan format penulisan tugas akhir.
-\subsection{Penulisan Gambar}
-Contoh gambar dapat dilihat pada Gambar \ref{fig:jaringan} dan Gambar \ref{fig:jaringan2}.
-Secara vertikal, gambar biasanya diletakkan di bagian atas halaman (\textit{top}) atau di bagian bawah halaman (\textit{bottom}).
-Gambar tidak harus diletakkan tepat di tempat gambar tersebut disebutkan pertama kali dalam teks,
-tetapi dapat diletakkan di halaman berikutnya jika tidak muat di halaman yang sama. Pada contoh ini, kedua gambar diletakkan di bagian atas halaman 
-menggunakan opsi \texttt{[t]} pada lingkungan \texttt{figure}, namun pada halaman yang berbeda, meskipun disebutkan di halaman yang sama akibat ruang yang terbatas. 
+Selain representasi data dan perangkat pada subbab sebelumnya, ADADeH memerlukan dasar deteksi \textit{deepfake audio}, model CNN, serta metode evaluasi klasifikasi. Ketiganya menjadi landasan untuk menghubungkan rekaman masukan dengan keputusan model dan menilai kemampuan sistem secara terukur.
 
-Penyebutan judul gambar dalam teks menggunakan perintah \texttt{ref}, misalnya Gambar \texttt{\\ref\{fig:jaringan\}}.
-Gunakan huruf kapital pada kata "Gambar" saat menyebutkan gambar dalam teks.
+\subsection{Deteksi \textit{Deepfake Audio}}
+\label{deteksi_deepfake}
 
-\begin{figure}[t] 
-  \caption{Contoh peletakan gambar di bagian atas halaman} 
-	\label{fig:jaringan}
-    	\includegraphics[width=0.7\textwidth]{images/gambar1.png}
-\end{figure}
+Ucapan sintetis dapat dibentuk melalui \textit{text-to-speech} (TTS), yaitu pembangkitan ucapan dari teks, atau \textit{voice conversion} (VC), yaitu pengubahan karakteristik suara pada ucapan sumber agar menyerupai suara sasaran. Kedua teknik tersebut menjadi bagian penting dalam kajian deteksi ucapan sintetis dan hasil konversi suara \autocite{wang2019asvspoof}. Dalam konteks ADADeH, persoalan deteksinya dirumuskan sebagai klasifikasi biner: rekaman suara asli diberi label $y = 0$, sedangkan rekaman \textit{deepfake} diberi label $y = 1$.
 
-Gambar, grafik, atau ilustrasi harus memiliki keterangan atau judul (\textit{caption}) yang menjelaskan isi gambar tersebut. 
-Secara horisontal, gambar dan judulnya diposisikan di tengah. Nomor gambar tidak diakhiri tanda baca.
-Judul gambar diletakkan di bawah gambar dan ditulis dengan huruf kecil kecuali huruf pertama pada kalimat judul. 
-Kalimat judul yang panjang dapat ditulis dalam beberapa baris seperti pada Gambar \ref{fig:jaringan2}.
+Detektor mempelajari pola yang membedakan kedua kelas dari contoh berlabel. Representasi \textit{mel-spectrogram} pada Subsubbab \ref{melspektrogram} memungkinkan pola energi terhadap frekuensi dan waktu menjadi masukan model. Akan tetapi, keberhasilan pada suatu kumpulan data belum memastikan keberhasilan pada teknik sintesis atau kondisi rekaman lain. Kajian ASVspoof menunjukkan perlunya evaluasi terhadap serangan yang belum dikenal dan variasi kondisi audio \autocite{wang2019asvspoof}. Sesuai lingkup Bab \ref{chap:pendahuluan}, hasil ADADeH perlu ditafsirkan dalam batas satu \textit{dataset} berbahasa Inggris yang digunakan.
 
-Ukuran gambar yang ditampilkan dapat diatur dengan mengubah nilai \textit{width} dalam sintaks \textit{includegraphics}. 
-Gambar \ref{fig:jaringan} memiliki lebar 70\% dari lebar teks, sedangkan Gambar \ref{fig:jaringan2} memiliki lebar 90\% dari lebar teks.
+\subsection{CNN untuk Klasifikasi Spektrogram}
+\label{cnn}
 
+CNN memproses masukan melalui lapisan konvolusi untuk menghasilkan peta fitur. Pada konvolusi dua dimensi, setiap filter menggabungkan nilai dari wilayah lokal masukan dengan bobot yang dipelajari. Ukuran filter, langkah pergeseran atau \textit{stride}, dan penambahan nilai pada tepi atau \textit{padding} menentukan wilayah yang diproses serta dimensi keluaran \autocite{pytorch2026conv2d}. Pada ADADeH, masukan berupa spektrogram satu kanal dengan sumbu frekuensi dan waktu sebagaimana dijelaskan pada Subsubbab \ref{proc_spektrogram}.
 
-\begin{figure}[t]
-  
-  \includegraphics[width=0.9\textwidth]{images/gambar1.png}
-  
-  \caption{Contoh peletakan gambar dengan judul yang panjang sehingga ditulis dalam beberapa baris dengan menggunakan gambar yang sama dengan Gambar~\ref{fig:jaringan} dengan hanya memodifikasi ukuran gambarnya saja} 
-	\label{fig:jaringan2} 
-    	
-\end{figure}
+Susunan model pada Subbab \ref{sist_mulmed} menggabungkan konvolusi dan aktivasi ReLU, peringkasan melalui \textit{pooling}, serta lapisan \textit{fully connected} untuk menghasilkan \textit{logit}. Konvolusi dan ReLU mengikuti Persamaan \ref{eq:conv}, sedangkan sigmoid pada Persamaan \ref{eq:sigmoid} mengubah \textit{logit} menjadi skor $p$ untuk kelas \textit{deepfake}. Keputusan klasifikasi kemudian mengikuti ambang pada Persamaan \ref{eq:threshold}. Dengan susunan ini, ekstraksi fitur dan klasifikasi dapat dipelajari dalam satu model.
 
-Pastikan gambar yang digunakan memiliki resolusi yang cukup tinggi agar tidak pecah atau buram saat dicetak. 
-Gambar umumnya tidak tajam dan tulisan tidak jelas atau kabur jika gambar tersebut:
-\begin{enumerate}[a.]
-  \item diperoleh dari hasil cropping pada suatu halaman buku atau situs web;
-  \item hasil pembesaran gambar yang gambar aslinya sebenarnya berukuran kecil; atau
-  \item disimpan dalam resolusi kecil
-\end{enumerate}
-Ketidakjelasan gambar ini dapat dilihat pada garis-garis diagram yang tidak tegas dan tulisan-tulisan dalam gambar yang tampak kabur dan kurang jelas terbaca.
+PyTorch mendukung pembangunan model dan penghitungan gradien secara otomatis \autocite{paszke2019pytorch}. Selama pelatihan, bobot diperbarui untuk mengurangi \textit{binary cross-entropy} pada Persamaan \ref{eq:bce}. Pada tahap prediksi, bobot yang telah dipelajari digunakan untuk menghitung keluaran rekaman baru. Pengaturan model dipilih melalui validasi sebagaimana dijelaskan pada Subbab \ref{pemisahan_data}.
 
-Untuk mendapatkan gambar yang tidak kabur (\textit{blur}), langkah-langkah berikut dapat digunakan:
-\begin{enumerate}[(a)]
-\item Hindari \textit{screenshot}. Gambar yang didapat di suatu pustaka atau referensi sebaiknya digambar ulang (tidak perlu sama persis), misalnya menggunakan PowerPoint, Canva, Figma, draw.io, atau yang lainnya.
-\item Jika diagram atau ilustrasi digambar menggunakan draw.io, saat gambar disimpan ke format PNG atau JPG (\textit{export as}), lakukan \textit{zoom} ke minimal 300\% (\textit{the default value is} 100\%). 
-\item Jika diagram digambar dengan menggunakan \texttt{PowerPoint} atau aplikasi yang mengolah gambar vektor lainnya, gambar dapat langsung disimpan asalkan resolusinya tinggi.
-\end{enumerate}
+\subsection{Pemisahan Data untuk Pelatihan dan Evaluasi}
+\label{pemisahan_data}
 
-\subsection{Penulisan Tabel}
-Format penulisan tabel hampir sama dengan format penulisan gambar. Bedanya adalah judul tabel diletakkan di atas tabel, bukan di bawah tabel seperti pada gambar.
-Ada tabel yang bisa dimuat dalam satu halaman (tabel pendek) dan ada tabel panjang yang yang tidak muat dalam satu halaman. Kedua jenis tabel tersebut disusun dengan cara yang berbeda.
-Jika tabel sangat panjang, gunakan paket \textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya.
-Namun, jika tabel dapat dimuat dalam satu halaman, gunakan lingkungan \textit{table} biasa, tidak menggunakan \textit{longtable}.
-Usahakan tabel dapat ditulis dalam satu halaman, tidak terpotong ke halaman berikutnya, jika memungkinkan.
+Evaluasi memerlukan pemisahan data latih, validasi, dan uji. Data latih digunakan untuk mempelajari bobot, data validasi untuk memilih pengaturan model dan ambang keputusan, serta data uji untuk menilai model setelah pilihan tersebut ditetapkan \autocite{sklearn2026crossval}. Statistik normalisasi juga harus diperoleh dari data latih agar informasi data uji tidak memengaruhi pembentukan model \autocite{sklearn2026pitfalls}.
 
-\subsubsection{Penulisan Tabel Pendek}
-Contoh tabel pendek dapat dilihat pada Tabel \ref{tab:tabel1}, \ref{tab:tabel2}, dan \ref{tab:tabel3}. 
-Pada kedua table ini, tabel dan judulnya diposisikan di tengah secara horisontal dan 
-judul tabel diletakkan di atas tabel. Secara vertikal, tabel sebaiknya diletakkan di bagian atas atau bawah halaman.
+Pada pengolahan rekaman menjadi beberapa potongan, seluruh potongan dari satu rekaman perlu ditempatkan pada kelompok data yang sama. Jika identitas pembicara tersedia, pemisahan berdasarkan pembicara juga perlu dipertimbangkan. Prinsip pemisahan berdasarkan kelompok mencegah contoh yang saling berkaitan muncul sekaligus pada data latih dan uji \autocite{sklearn2026crossval}. Penerapannya pada rekaman ADADeH bertujuan mengurangi kebocoran data dan menjaga agar hasil pengujian mencerminkan kemampuan terhadap rekaman baru.
 
-Penyebutan judul tabel dalam teks menggunakan perintah \texttt{ref}, misalnya Tabel \ref{tab:tabel1}.
-Gunakan huruf kapital pada kata "Tabel" saat menyebutkan tabel dalam teks.
+\subsection{Metrik Evaluasi dan Interpretasi Hasil}
+\label{metrik}
 
-Tabel \ref{tab:tabel1} menggunakan paket \textit{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-Selain itu, tabel ini juga menggunakan \textit{threeparttable} untuk menambahkan catatan kaki pada tabel 
-dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{tablenotes} yang disediakan oleh paket \textit{threeparttable}.
-Catatan kaki pada tabel ini menggunakan perintah \texttt{\textbackslash footnotemark} dan \texttt{\textbackslash footnotetext} untuk menambahkan catatan kaki pada tabel.
-
-Tabel \ref{tab:tabel2} menggunakan format standar \texttt{| l | c | r |}. 
-Tabel \ref{tab:tabel3} menggunakan lebar kolom tetap (\textit{fixed width}) menggunakan \texttt{p\{width\}}.
-
-\begin{table} 
-  \centering
-    \begin{threeparttable}[t] 
-    \caption{Contoh tabel yang menggunakan \texttt{tabularx} untuk mengatur lebar kolom secara fleksibel. 
-    Selain itu, tabel ini juga menggunakan \texttt{threeparttable} untuk menambahkan catatan kaki pada tabel 
-    dan opsi \texttt{X} agar lebar kolom fleksibel menyesuaikan lebar tabel.}
-    \label{tab:tabel1}
-    \begin{tabularx}{0.6\textwidth}{| c | X| l | r @{}|} % @{} removes extra space at edges, X makes the column flexible width
-	    \hline
-	    No & Nama 	& Satuan 		& Harga \\
-	    \hline
-	    1 & Buku 	& Exemplar	& 25000 \\
-	    2 & Komputer	& Unit		& 2500000 \\
-	    3 & Pensil	& Buah		& 118900 \\
-	    \hline
-	  \end{tabularx} 
-    \begin{tablenotes}
-      \footnotesize
-      \item \footnotemark[1]Tabel harga berdasarkan data tahun 2023.
-      \item \footnotemark[2]Sumber: \url{https://www.example.com}
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-
-
-
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \caption{Tabel yang menggunakan format standar \texttt{| l | c | r |}}
-  \label{tab:tabel2}
-	\begin{tabular}{ | l | c | r | }
-	\hline
-	Nama 	& Satuan 		& Harga \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	Komputer	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
-
-
-\begin{table}[t] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-  \centering
-  \caption{Tabel yang lebar kolomnya dibuat tetap}
-  \label{tbl:tabel3}
-	\begin{tabular}{  p{0.2\textwidth} | p{0.2\textwidth} | p{0.2\textwidth}  }
-	\hline
-	\textbf{Nama} 	& \textbf{Satuan} 		& \textbf{Harga} \\
-	\hline
-	Buku 	& Exemplar	& 25000 \\
-	\emph{Komputer}	& Unit		& 2500000 \\
-	Pensil	& Buah		& 118900 \\
-	\hline
-	\end{tabular}
-\end{table}
-
-% -- Example of importing table from external file --
-\subsubsection{Mengimpor Tabel dari Berkas Eksternal}
-
-Untuk kerapian penulisan, tabel tidak harus ditulis di dokumen utama. Sebagai contoh, Tabel \ref{tab:tabel4} diimpor dari berkas eksternal \texttt{table/tabel1.tex} menggunakan perintah \texttt{input}. 
-Dengan demikian, jika tabel tersebut perlu diubah, cukup mengubah pada berkas eksternal tersebut tanpa perlu mengubah pada berkas dokumen utama ini.
-
-\input tables/tabel1.tex
-
-
-% -- Example of long table --
-\subsubsection{Tabel yang Sangat Panjang}
-Jika tabel terlalu panjang sehingga tidak muat dalam satu halaman, gunakan paket 
-\textit{longtable} untuk membuat tabel yang dapat terpotong ke halaman berikutnya, 
-seperti pada Tabel \ref{tab:long}. 
-
-\input tables/longtable1.tex
-
-\subsection{Penulisan Rumus atau Persamaan Matematika Menggunakan {\LaTeX} dan Penomorannya}
-Contoh rumus matematika dapat ditulis seperti pada Persamaan \ref{eq:contoh1} di bawah ini. 
-Penomoran persamaan diletakkan di sebelah kanan, dan rumus ditulis dalam mode \textit{display math}.
-\begin{equation}
-E = mc^2
-\label{eq:contoh1}
-\end{equation}
-\eqcaption{Persamaan Pertama}
-
-Contoh lain penulisan rumus matematika yang lebih kompleks dapat ditulis seperti pada Persamaan \ref{eq:rumus2}.
+Dengan \textit{deepfake} sebagai kelas positif, matriks konfusi memuat empat hasil: TP untuk \textit{deepfake} yang terdeteksi, TN untuk audio asli yang dikenali, FP untuk audio asli yang salah dianggap \textit{deepfake}, dan FN untuk \textit{deepfake} yang salah dianggap asli. Dari nilai tersebut, akurasi, presisi, \textit{recall}, dan F1 dihitung menurut Persamaan \ref{eq:metrik} \autocite{sklearn2026metrics}.
 
 \begin{align}
-f(x) &= ax^2 + bx + c \\
-f'(x) &= \frac{d}{dx}(ax^2 + bx + c) \notag \\ % tidak menampilkan nomor pada baris ini
-      &= 2ax + b \label{eq:rumus2}
+  \text{Akurasi} &= \frac{TP + TN}{TP + TN + FP + FN} \notag \\
+  P &= \frac{TP}{TP + FP}, \qquad R = \frac{TP}{TP + FN} \notag \\
+  F_1 &= \frac{2PR}{P + R} = \frac{2TP}{2TP + FP + FN}
+  \label{eq:metrik}
 \end{align}
-\eqcaption{Persamaan Kedua}
+\eqcaption{Persamaan Akurasi, Presisi, \textit{Recall}, dan F1}
 
-Jika rumus terlalu panjang untuk ditulis dalam satu baris, gunakan lingkungan \textit{multline} seperti pada Persamaan \ref{eq:rumus3} di bawah ini.
-\begin{multline} 
-y = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4 + a_5x^5 + a_6x^6 + a_7x^7 \\
-    + a_8x^8 + a_9x^9 + a_{10}x^{10} \label{eq:rumus3}
-\end{multline}
-\eqcaption{Persamaan Ketiga}
+Akurasi menunjukkan proporsi seluruh prediksi yang benar. Presisi $P$ menunjukkan proporsi deteksi \textit{deepfake} yang benar, sedangkan \textit{recall} $R$ menunjukkan proporsi \textit{deepfake} yang berhasil ditemukan. F1 merangkum presisi dan \textit{recall} melalui rata-rata harmonik sehingga melengkapi akurasi, terutama ketika jumlah contoh kedua kelas berbeda \autocite{sklearn2026metrics}. Pada laporan evaluasi, F1 perlu dinyatakan secara konsisten untuk kelas positif tersebut.
 
-Jika ada penurunan rumus yang terdiri dari beberapa baris, namun tidak memerlukan penomoran pada setiap baris, gunakan lingkungan \textit{align*}, misalnya:
+\textit{Equal Error Rate} (EER) digunakan pada tugas deteksi \textit{deepfake} ASVspoof 2021 \autocite{delgado2021asvspoof}. Metrik ini menyatakan tingkat kesalahan ketika proporsi audio asli yang salah ditandai sebagai \textit{deepfake} sama dengan proporsi \textit{deepfake} yang lolos sebagai audio asli. Untuk konvensi label ADADeH, hubungan tersebut ditulis sebagai berikut.
 
-\begin{align*} 
-S &= \sum_{i=1}^{n} i^2 \\
-  &= 1^2 + 2^2 + 3^2 + \cdots + n^2 \\
-  &= \frac{n(n + 1)(2n + 1)}{6}
-\intertext{Contoh lainnya adalah rumus untuk mencari nilai rata-rata fungsi $f(x)$ pada interval $[p, q]$:}
-\bar{f} &= \frac{1}{q - p} \int_{p}^{q} f(x) \, dx \\
-        &= \frac{1}{q - p} \int_{p}^{q} (ax^2 + bx + c) \, dx \\
-        &= \frac{1}{q - p} \left[ \frac{a}{3}x^3 + \frac{b}{2}x^2 + cx \right]_p^q \\
-        &= \frac{a(q^3 - p^3)}{3(q - p)} + \frac{b(q^2 - p^2)}{2(q - p)} + c \label{eq:rumus4}
-\end{align*}
+\begin{align}
+  \mathrm{FPR}(\tau) &= \frac{FP(\tau)}{FP(\tau) + TN(\tau)} \notag \\
+  \mathrm{FNR}(\tau) &= \frac{FN(\tau)}{FN(\tau) + TP(\tau)} \notag \\
+  \mathrm{EER} &= \mathrm{FPR}(\tau_{\mathrm{EER}}) = \mathrm{FNR}(\tau_{\mathrm{EER}})
+  \label{eq:eer}
+\end{align}
+\eqcaption{Persamaan \textit{Equal Error Rate}}
 
+EER diperoleh dengan memvariasikan ambang skor. Pada data berhingga, titik kesamaan dapat diperkirakan melalui interpolasi atau pendekatan titik terdekat \autocite{delgado2021asvspoof}. Ambang untuk menghitung EER pada data uji merupakan bagian pengukuran metrik, sedangkan ambang operasi purwarupa dipilih menggunakan data validasi. Kriteria Bab \ref{chap:pendahuluan}, yaitu akurasi dan F1 minimal 90\% serta EER maksimal 10\%, tetap merupakan target sampai dibuktikan melalui pengujian.
 
-
-\subsection{Penulisan Kode Program, \textit{Script} atau \textit{Pseudocode}}
-Contoh penulisan kode program, \textit{script}, atau \textit{pseudocode} dapat dilihat seperti pada \textit{listing} \ref{lst:binary_iter}. 
-Gunakan paket \textit{listings} untuk menulis \textit{source code} dalam bahasa pemrograman tertentu. 
-Kode seperti ini disebut dengan istilah \textit{listing}. 
-Kode program, \textit{script}, atau \textit{pseudocode} yang relatif pendek dapat ditulis di dalam
-dokumen utama. Namun, jika kode programnya sangat panjang, sebaiknya ditulis di berkas terpisah dan diletakkan di lampiran.
-
-\subsection{Penulisan Algoritma}
-Contoh penulisan algoritma dapat dilihat pada Algoritma \ref{alg:binary-search}. Ada beberapa paket yang dapat digunakan untuk menulis algoritma,
-misalnya \textit{algorithm2e}, \textit{algorithmic}, dan \textit{algpseudocode}. 
-Pada contoh ini digunakan paket \textit{algorithmic} untuk menulis algoritma. Setiap paket memiliki sintaks yang berbeda-beda.
-Oleh karena itu, pelajari dokumentasi paket yang digunakan untuk menulis algoritma.
-
-
-\input{listings/binary-search-python.tex}
-
-
-\input{algorithms/binary-search-alg.tex}
+Skor keyakinan yang ditampilkan juga perlu dibedakan dari frekuensi kebenaran prediksi. Jaringan saraf dapat menghasilkan skor tinggi yang belum terkalibrasi dengan baik \autocite{guo2017calibration}. Oleh karena itu, skor ADADeH perlu disajikan sebagai keluaran model, dan hasil klasifikasi digunakan sebagai indikasi awal sesuai batasan pada Bab \ref{chap:pendahuluan}.
 
 
 
