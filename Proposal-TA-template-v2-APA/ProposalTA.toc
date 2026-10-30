@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {I.4}Lingkup dan Batasan}{3}{section.1.4}%
 \contentsline {section}{\numberline {I.5}Metodologi Pengembangan}{3}{section.1.5}%
 \contentsline {section}{\numberline {I.6}Sistematika Penulisan}{4}{section.1.6}%
-\contentsline {chapter}{\numberline {II}STUDI LITERATUR}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {II}DASAR TEORI}{5}{chapter.2}%
 \contentsline {section}{\numberline {II.1}Data Multimedia dan Representasinya}{5}{section.2.1}%
 \contentsline {subsection}{\numberline {II.1.1}Data Audio}{5}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {II.1.2}Data Citra Spektrogram}{6}{subsection.2.1.2}%
@@ -28,32 +28,46 @@
 \contentsline {subsubsection}{\numberline {II.1.2.2}Pemrosesan Spektrogram}{7}{subsubsection.2.1.2.2}%
 \contentsline {section}{\numberline {II.2}Sistem Multimedia}{8}{section.2.2}%
 \contentsline {section}{\numberline {II.3}Perangkat Keras dan Perangkat Lunak}{10}{section.2.3}%
-\contentsline {section}{\numberline {II.4}Protokol Komunikasi Multimedia}{10}{section.2.4}%
-\contentsline {section}{\numberline {II.5}Teknologi-Teknologi Lainnya}{10}{section.2.5}%
-\contentsline {section}{\numberline {II.6}Tentang Studi Literatur}{10}{section.2.6}%
-\contentsline {section}{\numberline {II.7}Format Penulisan Gambar, Tabel, Rumus, dan Kode Program}{11}{section.2.7}%
-\contentsline {subsection}{\numberline {II.7.1}Penulisan Gambar}{11}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {II.7.2}Penulisan Tabel}{12}{subsection.2.7.2}%
-\contentsline {subsubsection}{\numberline {II.7.2.1}Penulisan Tabel Pendek}{13}{subsubsection.2.7.2.1}%
-\contentsline {subsubsection}{\numberline {II.7.2.2}Mengimpor Tabel dari Berkas Eksternal}{14}{subsubsection.2.7.2.2}%
-\contentsline {subsubsection}{\numberline {II.7.2.3}Tabel yang Sangat Panjang}{14}{subsubsection.2.7.2.3}%
-\contentsline {subsection}{\numberline {II.7.3}Penulisan Rumus atau Persamaan Matematika Menggunakan {\LaTeX } dan Penomorannya}{16}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {II.7.4}Penulisan Kode Program, \textit {Script} atau \textit {Pseudocode}}{18}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {II.7.5}Penulisan Algoritma}{18}{subsection.2.7.5}%
-\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{21}{chapter.3}%
-\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{21}{section.3.1}%
-\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{21}{section.3.2}%
-\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{21}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{22}{subsection.3.2.3}%
-\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{22}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{22}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{22}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{25}{chapter.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{27}{chapter.5}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{29}{chapter*.16}%
+\contentsline {subsection}{\numberline {II.3.1}Perangkat Keras}{10}{subsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {II.3.1.1}Perangkat Pelatihan Model}{10}{subsubsection.2.3.1.1}%
+\contentsline {subsubsection}{\numberline {II.3.1.2}Perangkat Pengembangan dan Pengujian}{11}{subsubsection.2.3.1.2}%
+\contentsline {subsubsection}{\numberline {II.3.1.3}Perangkat Pengguna}{12}{subsubsection.2.3.1.3}%
+\contentsline {subsection}{\numberline {II.3.2}Perangkat Lunak}{12}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {II.3.2.1}Bahasa Pemrograman dan Lingkungan Pengembangan}{12}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {II.3.2.2}Pustaka Pemrosesan Audio}{13}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {II.3.2.3}Pustaka Pembelajaran Mendalam}{13}{subsubsection.2.3.2.3}%
+\contentsline {subsubsection}{\numberline {II.3.2.4}Pustaka Evaluasi dan Visualisasi}{13}{subsubsection.2.3.2.4}%
+\contentsline {subsubsection}{\numberline {II.3.2.5}Perangkat Lunak Antarmuka}{14}{subsubsection.2.3.2.5}%
+\contentsline {subsection}{\numberline {II.3.3}Arsitektur Klien--Server dan Transportasi Data}{15}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {II.3.4}HTTP dan HTTPS}{15}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {II.3.5}WebSocket dan Pengelolaan Sesi}{16}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {II.3.6}Alur Pengiriman Audio dan Penyajian Hasil}{16}{subsection.2.3.6}%
+\contentsline {section}{\numberline {II.4}Teknologi-Teknologi Lainnya}{17}{section.2.4}%
+\contentsline {subsection}{\numberline {II.4.1}Deteksi \textit {Deepfake Audio}}{17}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {II.4.2}CNN untuk Klasifikasi Spektrogram}{17}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {II.4.3}Pemisahan Data untuk Pelatihan dan Evaluasi}{18}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {II.4.4}Metrik Evaluasi dan Interpretasi Hasil}{18}{subsection.2.4.4}%
+\contentsline {chapter}{\numberline {III}ANALISIS KEBUTUHAN}{21}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Metode Pengumpulan Data}{21}{section.3.1}%
+\contentsline {subsection}{\numberline {III.1.1}Tahapan Studi Literatur}{21}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {III.1.2}Hasil Studi Literatur}{22}{subsection.3.1.2}%
+\contentsline {section}{\numberline {III.2}Analisis Kebutuhan Pengguna}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Identifikasi Pengguna}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Rumusan Kebutuhan Pengguna}{23}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Keterlacakan Kebutuhan}{26}{subsection.3.2.3}%
+\contentsline {section}{\numberline {III.3}Pemilihan Alternatif Solusi}{26}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{26}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Kriteria Penilaian}{27}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {III.3.3}Matriks Keputusan}{27}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {III.3.4}Solusi Terpilih}{28}{subsection.3.3.4}%
+\contentsline {section}{\numberline {III.4}Analisis Kebutuhan Sistem}{28}{section.3.4}%
+\contentsline {subsection}{\numberline {III.4.1}Kebutuhan Fungsional}{28}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {III.4.2}Kebutuhan Nonfungsional}{29}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {III.4.3}Keterlacakan Kebutuhan Pengguna terhadap Kebutuhan Sistem}{29}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{37}{chapter.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{39}{chapter.5}%
 \renewcommand {\cftchappresnum }{}
 \settowidth {\cftchapnumwidth }{A\hskip 1em\relax }
-\contentsline {chapter}{Lampiran \numberline {A}\textit {SOURCE CODE}}{31}{appendix.1.A}%
-\contentsline {section}{\numberline {A.1}Perangkat Lunak untuk Akuisisi Data dari Sensor Ultrasonik}{31}{section.1.A.1}%
-\contentsline {section}{\numberline {A.2}Perangkat Lunak untuk Pengolahan Data Akuisisi dan Visualisasi Hasil Pengukuran Jarak}{32}{section.1.A.2}%
+\contentsline {chapter}{Lampiran \numberline {A}\textit {SOURCE CODE}}{41}{appendix.1.A}%
+\contentsline {section}{\numberline {A.1}Perangkat Lunak untuk Akuisisi Data dari Sensor Ultrasonik}{41}{section.1.A.1}%
+\contentsline {section}{\numberline {A.2}Perangkat Lunak untuk Pengolahan Data Akuisisi dan Visualisasi Hasil Pengukuran Jarak}{42}{section.1.A.2}%
