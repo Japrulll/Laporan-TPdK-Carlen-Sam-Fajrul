@@ -8,4 +8,4 @@
 \contentsline {lstlisting}{\numberline {IV.8}{\ignorespaces Pelatihan model CNN dengan \textit {class weight} dan \textit {callback}}}{52}{lstlisting.4.8}%
 \contentsline {lstlisting}{\numberline {IV.9}{\ignorespaces Pencarian ambang keputusan dan evaluasi model}}{54}{lstlisting.4.9}%
 \contentsline {lstlisting}{\numberline {IV.10}{\ignorespaces Penyimpanan model dan konfigurasi}}{56}{lstlisting.4.10}%
-\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Binary search code}}{67}{lstlisting.1.A.1}%
+\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Binary search code}}{65}{lstlisting.1.A.1}%
