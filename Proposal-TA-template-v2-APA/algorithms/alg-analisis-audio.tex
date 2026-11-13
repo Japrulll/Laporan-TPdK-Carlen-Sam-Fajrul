@@ -1,0 +1,29 @@
+\begin{algorithm}[htbp]
+  \caption{Alur Analisis Rekaman ADADeH}
+  \label{alg:analisis-audio}
+  \begin{algorithmic}[1]
+    \Require Berkas audio $f$ yang diunggah pengguna
+    \Ensure Label $\ell$, skor keyakinan $c$, peringatan mutu $W$, dan ringkasan $R$
+    \State $\textit{valid} \gets \textsc{ValidasiBerkas}(f)$ \Comment{amplop, M4A/ISO-BMFF, ffprobe}
+    \If{\textbf{not} \textit{valid}}
+      \State \Return pesan kesalahan validasi
+    \EndIf
+    \State $y, sr \gets \textsc{DekodeTerisolasi}(f)$ \Comment{proses terpisah, batas 45 detik}
+    \State $y \gets \textsc{Mono}(y)$
+    \If{$sr \neq sr_g$}
+      \State $y \gets \textsc{Resample}(y, sr, sr_g)$
+    \EndIf
+    \State $W \gets \textsc{AssessQuality}(y)$
+    \State $K \gets \min\left(\left\lfloor \frac{|y| - L}{S} \right\rfloor + 1,\; 4\right)$ \Comment{$L$: chunk\_dur, $S$: step}
+    \For{$k = 1$ \textbf{to} $K$}
+      \State $X_k \gets \textsc{MelSpectrogram}(y[(k-1)S : (k-1)S + L])$ \Comment{$128 \times 157$, skala dB}
+      \State $X_k \gets (X_k - \mu) / (\sigma + 10^{-8})$
+      \State $p_k \gets \textsc{CNN}(X_k)$ \Comment{probabilitas kelas deepfake}
+    \EndFor
+    \State $\bar{p} \gets \frac{1}{K} \sum_{k=1}^{K} p_k$ \Comment{Persamaan III.2}
+    \State $\ell \gets \textsc{Label}(\bar{p} > \tau)$ \Comment{Persamaan II.4}
+    \State $c \gets \max(\bar{p},\, 1 - \bar{p})$
+    \State $R \gets \textsc{BuatRingkasan}(\ell, c, W)$
+    \State \Return $\ell, c, W, R$
+  \end{algorithmic}
+\end{algorithm}

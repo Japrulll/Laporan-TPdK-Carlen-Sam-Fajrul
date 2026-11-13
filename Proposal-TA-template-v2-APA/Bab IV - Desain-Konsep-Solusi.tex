@@ -208,7 +208,7 @@ menghubungkannya, sejalan dengan Tabel II.4.
       {\textbf{Klien}\\Peramban pengguna\\(antarmuka Streamlit)};
 
     \node[box, fill=orange!8, minimum width=6cm, minimum height=5.8cm]
-      (server) at (6.7,0) {};
+      (server) at (6.7,0.3) {};
     \node[font=\small\bfseries] at (6.7,2.85) {Server};
     \node[sub] (modul1) at (6.7,1.75) {\texttt{audio.py} + \texttt{quality.py}\\validasi, dekode \& mutu};
     \node[sub] (modul2) at (6.7,0) {\texttt{preprocessing.py}\\ekstraksi mel-spectrogram};
@@ -973,6 +973,8 @@ pada baris ke-8 kode di atas secara langsung mengimplementasikan Persamaan III.2
 yaitu merata-ratakan skor seluruh potongan suatu berkas (diidentifikasi melalui
 \texttt{file\_id}) menjadi satu skor berkas $\bar{p}$.
 
+\input{algorithms/alg-pencarian-ambang.tex}
+
 Tabel \ref{tab:evaluasi-chunk} dan \ref{tab:evaluasi-file} menyajikan hasil evaluasi
 pada data uji untuk masing-masing tingkat.
 
@@ -1201,6 +1203,8 @@ pada \texttt{ui.py} setiap kali pengguna mengunggah rekaman. Fungsi ini
 menjalankan Tahap 1 sampai 7 pada Gambar \ref{fig:alur-proses} secara berurutan
 dan mengembalikan satu struktur hasil yang memuat label, skor, peringatan mutu,
 dan metadata yang diperlukan untuk pelaporan.
+
+   \input{algorithms/alg-analisis-audio.tex}
 
 Antarmuka pengguna dibangun dengan Streamlit (\texttt{ui.py},
 \texttt{streamlit\_app.py} sebagai titik masuk) sesuai rancangan keluaran pada

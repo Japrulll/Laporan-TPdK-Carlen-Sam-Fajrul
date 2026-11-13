@@ -1,0 +1,18 @@
+\begin{algorithm}[htbp]
+  \caption{Pencarian Ambang Keputusan $\tau$ pada Data Validasi}
+  \label{alg:pencarian-ambang}
+  \begin{algorithmic}[1]
+    \Require Skor validasi $\{\hat{p}_i\}$, label validasi $\{y_i\}$, kandidat ambang $\mathcal{T}$ berisi 91 nilai dari $0{,}05$ sampai $0{,}95$
+    \Ensure Ambang terbaik $\tau^{*}$
+    \State $f^{*} \gets -\infty$
+    \For{$t \in \mathcal{T}$}
+      \State $\hat{y}_i \gets \mathbb{1}[\hat{p}_i > t]$ untuk setiap $i$
+      \State $f_t \gets F_1^{\text{makro}}(\{y_i\}, \{\hat{y}_i\})$
+      \If{$f_t > f^{*}$}
+        \State $f^{*} \gets f_t$
+        \State $\tau^{*} \gets t$
+      \EndIf
+    \EndFor
+    \State \Return $\tau^{*}$
+  \end{algorithmic}
+\end{algorithm}
