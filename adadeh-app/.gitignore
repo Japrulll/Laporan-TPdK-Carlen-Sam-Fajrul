@@ -1,0 +1,21 @@
+# Artefak model, dataset, dan keluaran training tidak boleh masuk Git.
+/artifacts/
+
+# Lingkungan lokal, cache, dan rahasia.
+/.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Keluaran packaging dan laporan lokal.
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
