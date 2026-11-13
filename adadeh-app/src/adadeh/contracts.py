@@ -1,4 +1,3 @@
-"""Kontrak numerik dari meta.json dan sel 8, 11, 16–17 notebook asli."""
 from dataclasses import dataclass
 import json
 from pathlib import Path

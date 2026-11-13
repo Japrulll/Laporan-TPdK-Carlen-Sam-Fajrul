@@ -1,4 +1,3 @@
-"""Transkripsi numerik sel 8/11 notebook asli, tanpa pelatihan ulang."""
 from dataclasses import dataclass
 
 import librosa

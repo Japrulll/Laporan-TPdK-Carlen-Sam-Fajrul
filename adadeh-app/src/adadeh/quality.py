@@ -1,4 +1,3 @@
-"""Indikator mutu engineering terpisah; tidak mentransformasi input model."""
 from dataclasses import dataclass
 
 import numpy as np

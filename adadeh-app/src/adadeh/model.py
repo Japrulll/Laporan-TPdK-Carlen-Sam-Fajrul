@@ -1,4 +1,3 @@
-"""Pemuatan model terverifikasi; tidak mempunyai jalur training atau fallback."""
 from dataclasses import dataclass, field
 import hashlib
 from pathlib import Path

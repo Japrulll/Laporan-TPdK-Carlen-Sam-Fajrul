@@ -1,4 +1,3 @@
-"""Orkestrasi satu unggahan; data audio tidak disimpan di hasil atau cache."""
 from dataclasses import asdict
 from datetime import datetime, timezone
 import hashlib

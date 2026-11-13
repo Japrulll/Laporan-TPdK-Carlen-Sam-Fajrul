@@ -1,15 +1,3 @@
-"""AudioDecoder asli dengan validasi unggahan lokal dan pembersihan sementara.
-
-Batas layanan: 100.000.000 byte dan durasi terdekode 2,5–600 detik.
-Pengaman operasional tambahan (bukan parameter notebook/laporan): tepat satu
-aliran audio, paling banyak 8 kanal, 192.000 Hz, serta estimasi/hasil float32
-128.000.000 byte. Probe dibatasi 15 detik dan proses decoder 45 detik.
-M4A dengan referensi eksternal, metadata terkompresi, struktur atom rusak,
-atau lebih dari 10.000 atom ditolak. Playlist tidak termasuk daftar demuxer.
-Batas alokasi berbasis metadata bukan sandbox memori OS; decoder native
-berjalan di proses anak agar dapat dihentikan saat batas waktu terlampaui.
-Tidak ada resampling, pencampuran kanal, atau decoder cadangan di modul ini.
-"""
 from dataclasses import dataclass
 import json
 import os
@@ -34,7 +22,6 @@ ALLOWED_SUFFIXES = {".wav", ".flac", ".mp3", ".m4a", ".ogg"}
 
 class AudioValidationError(ValueError):
     """Unggahan tidak memenuhi batas audio yang dapat diproses."""
-
 
 def _validate_envelope(payload: bytes, filename: str) -> None:
     """Periksa amplop unggahan sebelum pemeriksaan audio."""

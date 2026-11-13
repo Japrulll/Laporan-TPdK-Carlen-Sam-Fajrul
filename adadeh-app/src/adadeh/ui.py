@@ -1,10 +1,8 @@
-"""Antarmuka lokal; tidak menyimpan audio, fitur, atau hasil dalam cache."""
 import streamlit as st
 from time import perf_counter
 
 
 def render_result(result: dict) -> None:
-    """Tampilkan respons layanan nyata, tanpa contoh atau prediksi cadangan."""
     st.divider()
     st.subheader("Hasil pemeriksaan")
     st.markdown(f"### {result['label']}")

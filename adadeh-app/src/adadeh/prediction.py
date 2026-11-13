@@ -1,4 +1,3 @@
-"""Agregasi per file dari sel 17; tidak melakukan penyesuaian threshold."""
 import numpy as np
 
 from adadeh.contracts import ModelContract

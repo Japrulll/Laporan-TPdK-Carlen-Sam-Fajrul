@@ -1,4 +1,3 @@
-"""Metrik model beku: EER interpolasi ROC, bukan error pada threshold operasi."""
 import numpy as np
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, roc_auc_score, roc_curve
 

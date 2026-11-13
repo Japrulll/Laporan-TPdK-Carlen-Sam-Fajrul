@@ -1,4 +1,3 @@
-"""Ringkasan unduhan; tidak menyimpan audio atau mencatatnya ke log."""
 import json
 
 REQUIRED_FIELDS = ("file_name", "duration_seconds", "checked_at", "sha256", "label", "score_fake", "model_version", "limitations")
