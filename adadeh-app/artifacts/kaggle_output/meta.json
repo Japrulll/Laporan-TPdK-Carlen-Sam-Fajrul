@@ -1,0 +1,1 @@
+{"mu": -28.45931625366211, "sd": 16.406835556030273, "threshold": 0.5099999999999999, "global_sr": 16000, "chunk_dur": 40000, "step": 20000, "n_fft": 1024, "hop_length": 256, "n_mels": 128, "classes": ["real", "fake"]}

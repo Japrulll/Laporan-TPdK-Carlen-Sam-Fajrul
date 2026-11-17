@@ -1,5 +1,6 @@
 # Artefak model, dataset, dan keluaran training tidak boleh masuk Git.
-/artifacts/
+/artifacts/*
+!/artifacts/kaggle_output/
 
 # Lingkungan lokal, cache, dan rahasia.
 /.venv/
