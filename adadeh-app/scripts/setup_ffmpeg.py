@@ -13,8 +13,11 @@ DEFAULT_TARGET = Path(__file__).resolve().parents[1] / "artifacts" / "runtime" /
 
 
 def verify_extract(archive: Path, expected_sha256: str, target: Path) -> None:
+    digest_obj = hashlib.sha256()
     with archive.open("rb") as source:
-        digest = hashlib.file_digest(source, "sha256").hexdigest()
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest_obj.update(chunk)
+    digest = digest_obj.hexdigest()
     if digest != expected_sha256:
         raise ValueError("SHA-256 arsip FFmpeg tidak cocok; berkas tidak diekstrak.")
     with zipfile.ZipFile(archive) as source:
